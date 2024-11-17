@@ -1,10 +1,10 @@
 <?php
-namespace App\Http\Controllers\Grades;
-// use App\Http\Controllers\Grades\GradeController;
-use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Grades\GradeController;
+use App\Http\Controllers\Classrooms\ClassroomController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,15 +45,23 @@ Route::group([
     Route::get('/dashboard', action: [HomeController::class, 'index'])->name('dashboard');
 
 
-   //==============================dashboard page of Grades============================
+   //==============================Start dashboard page of Grades============================
 Route::group(['prefix' => 'Grades'], function () {
     Route::get('/Grades', [GradeController::class, 'index'])->name('Grades.index');
     Route::post('/grades', [GradeController::class, 'store'])->name('Grades.store');
     Route::patch('/update/{id}', [GradeController::class, 'update'])->name('Grades.update');
     Route::delete('/destroy/{id}', [GradeController::class, 'destroy'])->name('Grades.destroy');
 });
+ //==============================End dashboard page of Grades============================
 
-
+//==============================Start dashboard page of Classes_Room============================
+Route::group(['prefix' => 'Classrooms'], function () {
+ Route::get('/Classrooms', [ClassroomController::class, 'index'])->name('Classrooms.index');
+ Route::post('/Classrooms/store', [ClassroomController::class, 'store'])->name('Classrooms.store');
+ Route::post('/Classrooms', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
+ Route::patch('/update/{id}', [ClassroomController::class, 'update'])->name('Classrooms.update');
+ Route::delete('/destroy', [ClassroomController::class, 'destroy'])->name('delete_all');
+});
 
 
 

@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Grades;
-
 use toastr;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreGrades;
 use App\Http\Controllers\Controller;
+
 
 class GradeController extends Controller
 {
@@ -16,7 +16,6 @@ class GradeController extends Controller
     public function index()
     {
         $Grades = Grade::paginate(10);
-        // $grades = Grade::paginate(10);
         return view('pages.Grades.grades', compact('Grades'));
     }
 
@@ -29,6 +28,9 @@ class GradeController extends Controller
      */
     public function store(StoreGrades $request)
     {
+        if (Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en)->exists()){
+            return redirect()->back()->withErrors(trans('Grades_trans.exists'));
+        }
         try {
             $validated = $request->validated();
             $Grades = new Grade();

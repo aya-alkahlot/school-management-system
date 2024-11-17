@@ -20536,7 +20536,8 @@ a.button-toggle-nav {
     visibility: hidden; }
 
 .slide-menu.sidebar-hover .navbar.navbar-inverse.navbar-fixed-top .nav-header {
-  width: 230px; }
+  width: 230px; 
+}
   .slide-menu.sidebar-hover .navbar.navbar-inverse.navbar-fixed-top .nav-header .logo-wrap .brand-text {
     opacity: 1;
     visibility: visible; }
@@ -22599,7 +22600,8 @@ div.style-customizer .content-chooser input[type=radio]:checked ~ label {
   .admin-header a.button-toggle-nav.ml-20 {
     margin-left: 0px !important; }
   .admin-header.navbar.fixed-top + .container-fluid {
-    padding-top: 4.7rem; }
+    padding-top: 4.7rem; 
+  }
   .slide-menu .side-menu-fixed .menu-title {
     -webkit-transition: all 0s ease;
     -moz-transition: all 0s ease;
