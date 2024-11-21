@@ -58,9 +58,10 @@ Route::group(['prefix' => 'Grades'], function () {
 Route::group(['prefix' => 'Classrooms'], function () {
  Route::get('/Classrooms', [ClassroomController::class, 'index'])->name('Classrooms.index');
  Route::post('/Classrooms/store', [ClassroomController::class, 'store'])->name('Classrooms.store');
+ Route::patch('/Classrooms/update', [ClassroomController::class, 'update'])->name('Classrooms.update');
+ Route::delete('/Classrooms/destroy', [ClassroomController::class, 'destroy'])->name('Classrooms.destroy');
+ Route::delete('/Classrooms/delete_all', [ClassroomController::class, 'delete_all'])->name('Classrooms.delete_all');
  Route::post('/Classrooms', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
- Route::patch('/update/{id}', [ClassroomController::class, 'update'])->name('Classrooms.update');
- Route::delete('/destroy', [ClassroomController::class, 'destroy'])->name('delete_all');
 });
 
 
