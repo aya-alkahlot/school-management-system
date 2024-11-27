@@ -72,7 +72,6 @@ Route::group([
         Route::post('/Sections/store', [SectionController::class, 'store'])->name('Sections.store');
         Route::patch('/Sections/update', [SectionController::class, 'update'])->name('Sections.update');
         Route::delete('/Sections/destroy', [SectionController::class, 'destroy'])->name('Sections.destroy');
-        Route::delete('/Sections/delete_all', [SectionController::class, 'delete_all'])->name('Sections.delete_all');
     });
     //==============================End dashboard page of Sections============================
 
