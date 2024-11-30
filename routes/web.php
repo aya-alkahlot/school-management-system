@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Livewire\AddParent;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -74,6 +75,10 @@ Route::group([
         Route::delete('/Sections/destroy', [SectionController::class, 'destroy'])->name('Sections.destroy');
     });
     //==============================End dashboard page of Sections============================
+
+    //==============================parents============================
+
+    Route::view('add_parent','livewire.show_Form');
 
 
 });
