@@ -1,5 +1,6 @@
 <?php
 
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -78,5 +79,9 @@ Route::group([
 
   
  
-    Route::view('add_parent','livewire.show_Form');    
+    Route::view('add_parent','livewire.show_Form');
+    
+    Livewire::setUpdateRoute(function ($handle) {
+        return Route::post('/en/livewire/update', $handle);
+    }); 
 });

@@ -18,7 +18,7 @@ return [
     'Blood_Type_Father_id' => 'Blood Type',
     'Religion_Father_id' => 'Religion',
     'Address_Father' => 'Address Father',
-
+'save'=>'Are you sure to save the data?',
     //معلومات الام
     'Name_Mother' => 'Mother Name Arabic',
     'Name_Mother_en' => 'Mother Name English',
