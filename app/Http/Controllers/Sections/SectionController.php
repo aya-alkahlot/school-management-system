@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sections;
 
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,10 +17,10 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $Grades = Grade::with(['Sections'])->get(); 
+        $Grades = Grade::with(['Sections'])->get();
         $list_Grades = Grade::all();
-        return view('pages.Sections.Sections', compact('Grades','list_Grades'));
-
+        $teachers = Teacher::all();
+        return view('pages.Sections.Sections', compact('Grades', 'list_Grades', 'teachers'));
     }
 
     /**
@@ -27,28 +28,26 @@ class SectionController extends Controller
      */
     public function store(StoreSections $request)
     {
-        
-    try {
 
-        $validated = $request->validated();
-        $Sections = new Section();
-        $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
-        $Sections->Grade_id = $request->Grade_id;
-        $Sections->Class_id = $request->Class_id;
-        $Sections->Status = 1;
-        $Sections->save();
-        toastr()->success(trans('messages.success'));
-  
-        return redirect()->route('Sections.index');
-    }
-  
-    catch (\Exception $e){
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-    }
-  
+        try {
+
+            $validated = $request->validated();
+            $Sections = new Section();
+            $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+            $Sections->Grade_id = $request->Grade_id;
+            $Sections->Class_id = $request->Class_id;
+            $Sections->Status = 1;
+            $Sections->save();
+            $Sections->teachers()->attach($request->teacher_id);
+            toastr()->success(trans('messages.success'));
+
+            return redirect()->route('Sections.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
- 
+
 
     /**
      * Update the specified resource in storage.
@@ -58,28 +57,33 @@ class SectionController extends Controller
         try {
             $validated = $request->validated();
             $Sections = Section::findOrFail($request->id);
-      
+
             $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
             $Sections->Grade_id = $request->Grade_id;
             $Sections->Class_id = $request->Class_id;
-      
-            if(isset($request->Status)) {
-              $Sections->Status = 1;
+
+            if (isset($request->Status)) {
+                $Sections->Status = 1;
             } else {
-              $Sections->Status = 2;
+                $Sections->Status = 2;
             }
-      
+
+
+            // update pivot tABLE
+            if (isset($request->teacher_id)) {
+                $Sections->teachers()->sync($request->teacher_id);
+            } else {
+                $Sections->teachers()->sync(array());
+            }
+
+
             $Sections->save();
             toastr()->success(trans('messages.Update'));
-      
+
             return redirect()->route('Sections.index');
-        }
-        catch
-        (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-      
-        
     }
 
     /**
@@ -96,6 +100,4 @@ class SectionController extends Controller
         $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
         return $list_classes;
     }
-
-
 }

@@ -18,10 +18,7 @@ class CreateForeignKeys extends Migration {
             $table->foreign('Grade_id')->references('id')->on('Grades')
                 ->onDelete('cascade');
         });
-        // Schema::table('sections', function(Blueprint $table) {
-        //     $table->foreign('Class_id')->references('id')->on('Classrooms')
-        //         ->onDelete('cascade');
-        // });
+       
 
         Schema::table('my__parents', function(Blueprint $table) {
             $table->foreign('Nationality_Father_id')->references('id')->on('nationalities');

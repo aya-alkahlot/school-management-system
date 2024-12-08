@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -43,7 +44,7 @@ Route::group([
     // Route::get('/', function () {
     //     return view('dashboard');
     // });
-    Route::get('/dashboard', action: [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 
     //==============================Start dashboard page of Grades============================
@@ -93,5 +94,17 @@ Route::group([
         Route::delete('/Teachers/destroy', [TeacherController::class, 'destroy'])->name('Teachers.destroy');
     });
     //==============================End dashboard page of Teacher============================
+    //==============================Start dashboard page of Students============================
+    Route::group(['prefix' => 'Students'], function () {
+        Route::get('/Students', [StudentController::class, 'index'])->name('Students.index');
+        Route::get('/Students/create',  [StudentController::class, 'create'])->name('Students.create');
+        Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
+        Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
+        Route::post('/Students/store', [StudentController::class, 'store'])->name('Students.store');
+        // Route::get('/edit/{id}', [TeacherController::class, 'edit'])->name('Teachers.edit');
+        // Route::patch('/update', [TeacherController::class, 'Update'])->name('Teachers.update');
+        // Route::delete('/Teachers/destroy', [TeacherController::class, 'destroy'])->name('Teachers.destroy');
+    });
+    //==============================End dashboard page of Students============================
 
 });
