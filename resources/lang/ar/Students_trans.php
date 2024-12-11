@@ -31,6 +31,12 @@ return [
     'created_at' => 'تاريخ الاضافة',
     'Download' => 'تحميل',
     'delete' => 'حذف',
+    'Student_Edit'=>'تعديل الطالب',
+    'View_student'=>'عرض بيانات الطالب',
+    'Operations'=>'العمليات',
+    'Modify_student_data'=>'تعديل بيانات الطالب',
+    'Delete_student_data'=>'حذف بيانات الطالب'
+
 
 
 

@@ -95,16 +95,22 @@ Route::group([
     });
     //==============================End dashboard page of Teacher============================
     //==============================Start dashboard page of Students============================
+
     Route::group(['prefix' => 'Students'], function () {
         Route::get('/Students', [StudentController::class, 'index'])->name('Students.index');
         Route::get('/Students/create',  [StudentController::class, 'create'])->name('Students.create');
         Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
         Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
         Route::post('/Students/store', [StudentController::class, 'store'])->name('Students.store');
-        // Route::get('/edit/{id}', [TeacherController::class, 'edit'])->name('Teachers.edit');
-        // Route::patch('/update', [TeacherController::class, 'Update'])->name('Teachers.update');
-        // Route::delete('/Teachers/destroy', [TeacherController::class, 'destroy'])->name('Teachers.destroy');
+        Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('Students.edit');
+        Route::get('/students/{id}', [StudentController::class, 'show'])->name('Students.show');
+        Route::put('/Students/update', [StudentController::class, 'Update'])->name('Students.update');
+        Route::delete('/Students/destroy', [StudentController::class, 'destroy'])->name('Students.destroy');
+        Route::post('Upload_attachment', [StudentController::class, 'Upload_attachment'])->name('Upload_attachment');
+        Route::post('Delete_attachment', [StudentController::class , 'Delete_attachment'])->name('Delete_attachment');
     });
+    Route::get('/Download_attachment/{studentsname}/{filename}', [StudentController::class, 'Download_attachment'])->name('Download_attachment');
+
     //==============================End dashboard page of Students============================
 
 });

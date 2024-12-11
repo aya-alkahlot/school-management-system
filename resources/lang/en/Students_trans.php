@@ -31,5 +31,10 @@ return [
     'created_at' => 'created_at',
     'Download' => 'Download',
     'delete' => 'Delete',
+    'Student_Edit'=>'Student_Edit',
+    'View_student'=>'View_student',
+    'Operations'=>'Operations',
+    'Modify_student_data'=>'Modify student data',
+    'Delete_student_data'=>'Delete student data'
 
 ];
