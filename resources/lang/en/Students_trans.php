@@ -35,6 +35,19 @@ return [
     'View_student'=>'View_student',
     'Operations'=>'Operations',
     'Modify_student_data'=>'Modify student data',
-    'Delete_student_data'=>'Delete student data'
-
+    'Delete_student_data'=>'Delete student data',
+    'new_academic_stage' => 'new_academic_stage',
+    'All_back_down'=>'All back down',
+    'Previous_educational_stage'=>'Previous educational stage',
+    'Academic_year'=>'Academic year',
+    'Previous_school_grade'=>'Previous school grade',
+    'Previous_academic_department'=>'Previous academic department',
+    'Current_academic_stage'=>'Current academic stage',
+    'Current_academic_year'=>'Current academic year',
+    'Current_grade'=>'Current grade',
+    'Current_academic_department'=>'Current academic department',
+    'Old_school_stage'=>'Old school stage',
+    'sure'=>'Are you sure about the student withdrawal process?',
+    'sureAll'=>'Are you the starting point of all events?',
+    'Student_backed_down'=>'Student_backed_down'
 ];

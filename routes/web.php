@@ -8,6 +8,8 @@ use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
+use App\Http\Controllers\Students\GraduatedController;
+use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -94,7 +96,7 @@ Route::group([
         Route::delete('/Teachers/destroy', [TeacherController::class, 'destroy'])->name('Teachers.destroy');
     });
     //==============================End dashboard page of Teacher============================
-    //==============================Start dashboard page of Students============================
+    //==============================Start Students page of Students============================
 
     Route::group(['prefix' => 'Students'], function () {
         Route::get('/Students', [StudentController::class, 'index'])->name('Students.index');
@@ -107,10 +109,26 @@ Route::group([
         Route::put('/Students/update', [StudentController::class, 'Update'])->name('Students.update');
         Route::delete('/Students/destroy', [StudentController::class, 'destroy'])->name('Students.destroy');
         Route::post('Upload_attachment', [StudentController::class, 'Upload_attachment'])->name('Upload_attachment');
-        Route::post('Delete_attachment', [StudentController::class , 'Delete_attachment'])->name('Delete_attachment');
+        Route::post('Delete_attachment', [StudentController::class, 'Delete_attachment'])->name('Delete_attachment');
     });
     Route::get('/Download_attachment/{studentsname}/{filename}', [StudentController::class, 'Download_attachment'])->name('Download_attachment');
+    //==============================End Students page of Students============================
+    //==============================Start Pormotion page of Students============================
+    Route::group(['prefix' => 'Promotion'], function () {
+        Route::get('/Promotion', [PromotionController::class, 'index'])->name('Promotion.index');
+        Route::post('/Promotion/store', [PromotionController::class, 'store'])->name('Promotion.store');
+        Route::get('/Promotion/create',  [PromotionController::class, 'create'])->name('Promotion.create');
+        Route::delete('/Promotion/destroy', [PromotionController::class, 'destroy'])->name('Promotion.destroy');
+    });
+    //==============================End Pormotion page of Students============================
 
-    //==============================End dashboard page of Students============================
+    Route::group(['prefix' => 'Graduated'], function () {
+        Route::get('/Graduated', [GraduatedController::class, 'index'])->name('Graduated.index');
+        Route::post('/Graduated/store', [GraduatedController::class, 'store'])->name('Graduated.store');
+        Route::get('/Graduated/create',  [GraduatedController::class, 'create'])->name('Graduated.create');
+        Route::put('/Graduated/update', [GraduatedController::class, 'Update'])->name('Graduated.update');
+        Route::delete('/Graduated/destroy', [GraduatedController::class, 'destroy'])->name('Graduated.destroy');
+
+    });
 
 });
