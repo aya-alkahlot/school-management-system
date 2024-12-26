@@ -100,35 +100,6 @@
                         </ul>
                     </li>
 
-
-                    <!-- <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
-                            <div class="pull-left"><i class="fa fa-graduation-cap"></i></i></i><span
-                                    class="right-nav-text">{{trans('main_trans.students')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="students-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Students.create')}}">{{trans('main_trans.add_student')}}</a> </li>
-                            <li> <a href="{{route('Students.index')}}">{{trans('main_trans.list_students')}}</a> </li>
-                            <li> <a href="{{route('Promotion.index')}}">{{trans('main_trans.Students_Promotions')}}</a> </li>
-                            <li> <a href="{{route('Promotion.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
-                            </ul>
-                    </li>
-
-                    <li>  -->
-                    <!-- <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
-                            <div class="pull-left"><i class="fa fa-graduation-cap"></i></i></i><span
-                                    class="right-nav-text">{{trans('main_trans.Students_Promotions')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Students_upgrade" class="collapse">
-                            <li> <a href="{{route('Promotion.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
-                            <li> <a href="#">{{trans('main_trans.list_Promotions')}}</a> </li>
-                        </ul>
-                    </li> -->
-
                     <!-- Teachers-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Teachers-menu">
@@ -161,14 +132,18 @@
                     <!-- Accounts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
-                            <div class="pull-left"><i class="fa fa-credit-card"></i><span
-                                    class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
+                            <div class="pull-left"><i class="fa fa-users"></i><span
+                                    class="right-nav-text">{{trans('main_trans.Accounts')}}</span>
+                                </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                            <li> <a href="{{route('Fees.index')}}">{{trans('Students_trans.Tuition_fees')}}</a> </li>
+                            <li> <a href="{{route('Fees_Invoices.index')}}">{{trans('Students_trans.Invoices')}}</a> </li>
+                            <li> <a href="">{{trans('Students_trans.Receipts')}}</a> </li>
+                            <li> <a href="">{{trans('Students_trans.Exclude_fees')}}</a> </li>
+                            <li> <a href="">{{trans('Students_trans.Exchange_bonds')}}</a> </li>
                         </ul>
                     </li>
 

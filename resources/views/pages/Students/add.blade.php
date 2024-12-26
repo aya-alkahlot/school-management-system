@@ -175,9 +175,6 @@
                             <input type="file" accept="image/*" name="photos[]" multiple>
                         </div>
                     </div>
-
-
-
                     <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Students_trans.submit')}}</button>
                 </form>
 

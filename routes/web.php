@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Grades\GradeController;
+use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Http\Controllers\Students\FeesInvoicesController;
+use App\Http\Controllers\Students\ReceiptStudentController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------------------------------------------------
@@ -130,5 +133,36 @@ Route::group([
         Route::delete('/Graduated/destroy', [GraduatedController::class, 'destroy'])->name('Graduated.destroy');
 
     });
+
+    Route::group(['prefix' => 'Fees'], function () {
+        Route::get('/Fees', [FeesController::class, 'index'])->name('Fees.index');
+        Route::post('/Fees/store', [FeesController::class, 'store'])->name('Fees.store');
+        Route::get('/Fees/create',  [FeesController::class, 'create'])->name('Fees.create');
+        Route::get('/edit/{id}', [FeesController::class, 'edit'])->name('Fees.edit');
+        Route::put('/Fees/update', [FeesController::class, 'Update'])->name('Fees.update');
+        Route::delete('/Fees/destroy', [FeesController::class, 'destroy'])->name('Fees.destroy');
+
+    });
+
+    Route::group(['prefix' => 'Fees_Invoice'], function () {
+        Route::get('/Fees_Invoice', [FeesInvoicesController::class, 'index'])->name('Fees_Invoices.index');
+        Route::get('/Fees_Invoice/{id}', [FeesInvoicesController::class, 'show'])->name('Fees_Invoices.show');
+        Route::post('/Fees_Invoice/store', [FeesInvoicesController::class, 'store'])->name('Fees_Invoices.store');
+        Route::get('/edit/{id}', [FeesInvoicesController::class, 'edit'])->name('Fees_Invoices.edit');
+        Route::put('/Fees_Invoice/update', [FeesInvoicesController::class, 'update'])->name('Fees_Invoices.update');
+        Route::delete('/Fees_Invoice/destroy', [FeesInvoicesController::class, 'destroy'])->name('Fees_Invoices.destroy');
+
+    });
+    Route::group(['prefix' => 'receipt_student'], function () {
+        Route::get('/receipt_student', [ReceiptStudentController::class, 'index'])->name('receipt_students.index');
+        Route::get('/receipt_students/{id}', [ReceiptStudentController::class, 'show'])->name('receipt_students.show');
+        Route::post('/receipt_students/store', [ReceiptStudentController::class, 'store'])->name('receipt_students.store');
+        Route::get('/edit/{id}', [ReceiptStudentController::class, 'edit'])->name('receipt_students.edit');
+        Route::put('/receipt_students/update', [ReceiptStudentController::class, 'update'])->name('receipt_students.update');
+        Route::delete('/receipt_students/destroy', [ReceiptStudentController::class, 'destroy'])->name('receipt_students.destroy');
+
+    });
+
+
 
 });

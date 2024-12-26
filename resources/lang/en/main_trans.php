@@ -9,6 +9,7 @@ return [
     'Programname' => 'School Management Program',
     'change_language'=>'language',
     'Grades'=>'Grades',
+    'Fees'=>'Fees',
     'Grades_List'=>'Grades List',
     'classes'=>'Classes',
     'List_classes' => 'List Classes',
