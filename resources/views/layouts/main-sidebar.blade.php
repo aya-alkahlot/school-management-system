@@ -141,7 +141,7 @@
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{route('Fees.index')}}">{{trans('Students_trans.Tuition_fees')}}</a> </li>
                             <li> <a href="{{route('Fees_Invoices.index')}}">{{trans('Students_trans.Invoices')}}</a> </li>
-                            <li> <a href="">{{trans('Students_trans.Receipts')}}</a> </li>
+                            <li> <a href="{{route('receipt_students.index')}}">{{trans('Students_trans.Receipts')}}</a> </li>
                             <li> <a href="">{{trans('Students_trans.Exclude_fees')}}</a> </li>
                             <li> <a href="">{{trans('Students_trans.Exchange_bonds')}}</a> </li>
                         </ul>
