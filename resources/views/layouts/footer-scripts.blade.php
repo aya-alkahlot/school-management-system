@@ -68,20 +68,18 @@
         }
     }
 </script>
-
-
 <script>
-        $(document).ready(function() {
-            $('select[name="Grade_id"]').on('change', function() {
+        $(document).ready(function () {
+            $('select[name="Grade_id"]').on('change', function () {
                 var Grade_id = $(this).val();
                 if (Grade_id) {
                     $.ajax({
-                        url: "{{ URL::to('classes') }}/" + Grade_id,
+                        url: "{{ URL::to('/Students/Get_classrooms') }}/" + Grade_id,
                         type: "GET",
                         dataType: "json",
-                        success: function(data) {
+                        success: function (data) {
                             $('select[name="Class_id"]').empty();
-                            $.each(data, function(key, value) {
+                            $.each(data, function (key, value) {
                                 $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
                             });
                         },
@@ -92,6 +90,7 @@
             });
         });
     </script>
+
 
     
 <script>

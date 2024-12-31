@@ -4,15 +4,20 @@ use Livewire\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Exams\ExamController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\Students\PaymentController;
 use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Subjects\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
+use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Students\FeesInvoicesController;
+use App\Http\Controllers\Students\ProcessingFeeController;
 use App\Http\Controllers\Students\ReceiptStudentController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -160,6 +165,53 @@ Route::group([
         Route::get('/edit/{id}', [ReceiptStudentController::class, 'edit'])->name('receipt_students.edit');
         Route::put('/receipt_students/update', [ReceiptStudentController::class, 'update'])->name('receipt_students.update');
         Route::delete('/receipt_students/destroy', [ReceiptStudentController::class, 'destroy'])->name('receipt_students.destroy');
+
+    });
+    Route::group(['prefix' => 'ProcessingFee'], function () {
+        Route::get('/ProcessingFee', [ProcessingFeeController::class, 'index'])->name('ProcessingFee.index');
+        Route::get('/ProcessingFee/{id}', [ProcessingFeeController::class, 'show'])->name('ProcessingFee.show');
+        Route::post('/ProcessingFee/store', [ProcessingFeeController::class, 'store'])->name('ProcessingFee.store');
+        Route::get('/edit/{id}', [ProcessingFeeController::class, 'edit'])->name('ProcessingFee.edit');
+        Route::put('/ProcessingFee/update', [ProcessingFeeController::class, 'update'])->name('ProcessingFee.update');
+        Route::delete('/ProcessingFee/destroy', [ProcessingFeeController::class, 'destroy'])->name('ProcessingFee.destroy');
+
+    });
+    Route::group(['prefix' => 'PaymentStudent'], function () {
+        Route::get('/PaymentStudent', [PaymentController::class, 'index'])->name('Payment_students.index');
+        Route::get('/ProcessingFee/{id}', [PaymentController::class, 'show'])->name('Payment_students.show');
+        Route::post('/ProcessingFee/store', [PaymentController::class, 'store'])->name('Payment_students.store');
+        Route::get('/edit/{id}', [PaymentController::class, 'edit'])->name('Payment_students.edit');
+        Route::put('/ProcessingFee/update', [PaymentController::class, 'update'])->name('Payment_students.update');
+        Route::delete('/ProcessingFee/destroy', [PaymentController::class, 'destroy'])->name('Payment_students.destroy');
+
+    });
+    Route::group(['prefix' => 'Attendance'], function () {
+        Route::get('/Attendance', [AttendanceController::class, 'index'])->name('Attendance.index');
+        Route::get('/Attendance/{id}', [AttendanceController::class, 'show'])->name('Attendance.show');
+        Route::post('/Attendance/store', [AttendanceController::class, 'store'])->name('Attendance.store');
+        // Route::get('/edit/{id}', [AttendanceController::class, 'edit'])->name('Attendance.edit');
+        // Route::put('/Attendance/update', [AttendanceController::class, 'update'])->name('Attendance.update');
+        // Route::delete('/Attendance/destroy', [AttendanceController::class, 'destroy'])->name('Attendance.destroy');
+
+    });
+    Route::group(['prefix' => 'Subjects'], function () {
+        Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
+        Route::get('/subjects/create',  [SubjectController::class, 'create'])->name('subjects.create');
+        Route::get('/subjects/{id}', [SubjectController::class, 'show'])->name('subjects.show');
+        Route::post('/subjects/store', [SubjectController::class, 'store'])->name('subjects.store');
+        Route::get('/edit/{id}', [SubjectController::class, 'edit'])->name('subjects.edit');
+        Route::Patch('/subjects/update', [SubjectController::class, 'update'])->name('subjects.update');
+        Route::delete('/subjects/destroy', [SubjectController::class, 'destroy'])->name('subjects.destroy');
+
+    });
+
+    Route::group(['prefix' => 'Exams'], function () {
+        Route::get('/Exams', [ExamController::class, 'index'])->name('Exams.index');
+        Route::get('/Exams/create',  [ExamController::class, 'create'])->name('Exams.create');
+        Route::post('/Exams/store', [ExamController::class, 'store'])->name('Exams.store');
+        Route::get('/edit/{id}', [ExamController::class, 'edit'])->name('Exams.edit');
+        Route::Patch('/Exams/update', [ExamController::class, 'update'])->name('Exams.update');
+        Route::delete('/Exams/destroy', [ExamController::class, 'destroy'])->name('Exams.destroy');
 
     });
 

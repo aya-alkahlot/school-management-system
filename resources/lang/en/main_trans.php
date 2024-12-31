@@ -36,7 +36,9 @@ return [
     'Settings'=>'Settings',
     'Users'=>'Users',
     'Copyright' => 'Copyright',
-    'Name_Programer' => 'School management software'
+    'Name_Programer' => 'School management software',
+    'Study_materials'=>'Study Materials',
+    
 
 
 ];

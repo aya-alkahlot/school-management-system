@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    الفواتير الدراسية
+{{trans('Students_trans.Tuition_bills')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   الفواتير الدراسية
+   {{trans('Students_trans.Tuition_bills')}}
 @stop
 <!-- breadcrumb -->
 @endsection
