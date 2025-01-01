@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Repository;
 
-
-interface ExamRepositoryInterface
+interface QuizzRepositoryInterface
 {
     public function index();
 
@@ -13,8 +11,8 @@ interface ExamRepositoryInterface
     public function store($request);
 
     public function edit($id);
+
     public function update($request);
 
     public function destroy($request);
-
 }
