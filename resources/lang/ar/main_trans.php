@@ -15,7 +15,7 @@ return [
     'sections'=>'الاقسام',
     'List_sections'=>'قائمة الاقسام الدراسية',
     'students'=>'الطلاب',
-    'Student_information'=>'معلومات الطلاب',
+    'information_student'=>'معلومات الطلاب',
     'add_student'=>'اضافة طالب جديد',
     'list_students'=>'قائمة الطلاب',
     'Students_Promotions'=>'ترقية الطلاب',
