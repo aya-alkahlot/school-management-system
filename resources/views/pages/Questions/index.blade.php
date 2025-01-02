@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    قائمة الاسئلة
+{{trans('Students_trans.List_of_questions')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    قائمة الاسئلة
+{{trans('Students_trans.List_of_questions')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -22,7 +22,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('questions.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">اضافة سؤال جديد</a><br><br>
+                                   aria-pressed="true">{{trans('Students_trans.Add_a_new_question')}}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -30,12 +30,12 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">السؤال</th>
-                                            <th scope="col">الاجابات</th>
-                                            <th scope="col">الاجابة الصحيحة</th>
-                                            <th scope="col">الدرجة</th>
-                                            <th scope="col">اسم الاختبار</th>
-                                            <th scope="col">العمليات</th>
+                                            <th scope="col">{{trans('Students_trans.question')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Answers')}}</th>
+                                            <th scope="col">{{trans('Students_trans.the_right_answer')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Degree')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Test_name')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Operations')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

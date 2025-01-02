@@ -38,7 +38,8 @@ return [
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
     'Name_Programer' => 'برنامج اداره المدارس',
-    'Study_materials'=>'المواد الدراسيه'
+    'Study_materials'=>'المواد الدراسيه',
+
 
 
 ];

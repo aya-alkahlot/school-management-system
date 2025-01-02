@@ -3,7 +3,7 @@
 return [
 
     'title_page' => 'الاقسام',
-    'List_Grade' => 'List_Grade',
+    'List_Grade' => 'قائمة الصفوف',
     'add_section' => 'اضافة قسم',
     'edit_Section'=> 'تعديل قسم',
     'delete_Section'=> 'حذف قسم',
