@@ -4,11 +4,14 @@ use Livewire\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Exams\ExamController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Quizzes\QuizzController;
 use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\Students\LibraryController;
 use App\Http\Controllers\Students\PaymentController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Subjects\SubjectController;
@@ -19,6 +22,7 @@ use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Students\FeesInvoicesController;
+use App\Http\Controllers\Students\OnlineClasseController;
 use App\Http\Controllers\Students\ProcessingFeeController;
 use App\Http\Controllers\Students\ReceiptStudentController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -36,28 +40,44 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Auth::routes();
 
-Route::group(['middleware' => ['guest']], function () {
-    Route::get('/', function () {
-        // return view('auth.login');
-        return view('dashboard');
-        // return view('empty');
+// Route::group(['middleware' => ['guest']], function () {
+//     Route::get('/', function () {
+//         // return view('auth.login');
+//         return view('dashboard');
+//         // return view('empty');
 
-    });
+//     });
+// });
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+Route::get('/', [HomeController::class, 'index'])->name('selection');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/ar/dashboard', [HomeController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('dashboard.ar');
+
+Route::get('/en/dashboard', [HomeController::class, 'dashboard'])
+    ->middleware('auth')
+    ->name('dashboard.en');
+
+Route::group(['prefix' => 'login'], function () {
+
+    Route::get('/login/{type}', [LoginController::class,'loginForm'])->middleware('guest')->name('login.show');
+    Route::post('/login', [LoginController::class,'login'])->name('login');
+    Route::get('/logout/{type}',  [LoginController::class,'logout'])->name('logout');
 });
-Route::get('/', function () {
-    return view('auth.login');
-});
+
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
-    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/ 
     // Route::get('/', function () {
     //     return view('dashboard');
     // });
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
-
 
     //==============================Start dashboard page of Grades==========================
     Route::group(['prefix' => 'Grades'], function () {
@@ -257,6 +277,41 @@ Route::group([
         Route::delete('/questions/destroy', [QuestionController::class, 'destroy'])->name('questions.destroy');
     });
     //==============================End dashboard page of questions===========================
+
+
+    //==============================Start dashboard page of online_classes====================
+    Route::group(['prefix' => 'online_classes'], function () {
+        Route::get('/online_classes', [OnlineClasseController::class, 'index'])->name('online_classes.index');
+        Route::get('/online_classes/create',  [OnlineClasseController::class, 'create'])->name('online_classes.create');
+        Route::post('/online_classes/store', [OnlineClasseController::class, 'store'])->name('online_classes.store');
+        Route::get('/edit/{id}', [OnlineClasseController::class, 'edit'])->name('online_classes.edit');
+        Route::put('/online_classes/update', [OnlineClasseController::class, 'update'])->name('online_classes.update');
+        Route::delete('/online_classes/destroy', [OnlineClasseController::class, 'destroy'])->name('online_classes.destroy');
+    });
+    //==============================End dashboard page of online_classes=====================
+
+    //==============================Start dashboard page of library==========================
+    Route::group(['prefix' => 'library'], function () {
+        Route::get('/library', [LibraryController::class, 'index'])->name('library.index');
+        Route::get('/library/create',  [LibraryController::class, 'create'])->name('library.create');
+        Route::post('/library/store', [LibraryController::class, 'store'])->name('library.store');
+        Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('library.edit');
+        Route::put('/library/update', [LibraryController::class, 'update'])->name('library.update');
+        Route::get('library/downloadAttachment/{file}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
+        Route::delete('/library/destroy', [LibraryController::class, 'destroy'])->name('library.destroy');
+    });
+    //==============================End dashboard page of library===========================
+    //==============================Start dashboard page of library==========================
+    Route::group(['prefix' => 'settings'], function () {
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::get('/library/create',  [LibraryController::class, 'create'])->name('library.create');
+        Route::post('/library/store', [LibraryController::class, 'store'])->name('library.store');
+        Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('library.edit');
+        Route::put('/settings/update', [SettingController::class, 'update'])->name('settings.update');
+        Route::get('library/downloadAttachment/{file}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
+        Route::delete('/library/destroy', [LibraryController::class, 'destroy'])->name('library.destroy');
+    });
+    //==============================End dashboard page of library===========================
 
 
 });

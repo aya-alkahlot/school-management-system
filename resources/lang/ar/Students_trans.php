@@ -113,7 +113,31 @@ return [
    'Answers'=>'الاجابات',
    'the_right_answer'=>'الاجابات الصحيحه',
    'Degree'=>'الدرجه',
-   'Tests'=>'الاختبارات'
+   'Tests'=>'الاختبارات',
+   'Book_List'=>'قائمة الكتب',
+   'Add_a_new_book'=>'اضافة كتاب جديد',
+   'Books_name'=>'اسم الكتب',
+   'Edit_book'=>'تعديل كتاب',
+   'Online_classes'=>'حصص اونلاين مع زوم',
+   'Online_class'=>'حصص اونلاين',
+   'Class_title'=>'اسم الحصه',
+   'Start_date'=>'تاريخ البداية',
+   'Class_time'=>'وقت الحصه',
+   'Share_link'=>'رابط الحصه',
+   'Add_a_new_online_share'=>'اضافه حصص اونلاين جديده',
+   'Add_a_new_share'=>'اضافه حصه جديده',
+   'Class_duration'=>'مده الحصه بالدقائق',
+   'School_name'=>'اسم المدرسه',
+   'current_year'=>'العام الحالي',
+   'Short_school_name'=>'اسم المدرسه المختصر',
+   'Phone'=>'الهاتف',
+   'e-mail'=>'البريد الالكتروني',
+   'School_address'=>'عنوان المدرسه',
+   'End_of_first_semester'=>'نهاية الترم الاول',
+   'End_of_second_semester'=>'نهاية الترم الاول',
+   'School_logo'=>'شعار المدرسه'
+ 
+
 
 
 

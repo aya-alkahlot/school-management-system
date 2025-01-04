@@ -163,7 +163,7 @@
                     <!-- Subjects-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects">
-                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('main_trans.Study_materials')}}</span></div>
+                            <div class="pull-left"><i class="fa fa-pencil"></i><span class="right-nav-text">{{trans('main_trans.Study_materials')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -175,7 +175,7 @@
                     <!-- Quizzes-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
-                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('Students_trans.Tests')}}</span></div>
+                            <div class="pull-left"><i class="fa fa-check-square"></i><span class="right-nav-text">{{trans('Students_trans.Tests')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -194,14 +194,12 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="library-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{route('library.index')}}">{{trans('Students_trans.Book_List')}}</a> </li>
                         </ul>
                     </li>
 
 
-                    <!-- Onlinec lasses-->
+                    <!-- Online classes-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Onlineclasses-icon">
                             <div class="pull-left"><i class="fa fa-laptop"></i><span class="right-nav-text">{{trans('main_trans.Onlineclasses')}}</span></div>
@@ -209,26 +207,17 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{route('online_classes.index')}}">{{trans('Students_trans.Online_classes')}}</a> </li>
                         </ul>
                     </li>
 
 
                     <!-- Settings-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Settings-icon">
-                            <div class="pull-left"><i class="fa fa-gear"></i><span class="right-nav-text">{{trans('main_trans.Settings')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Settings-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
-                        </ul>
+                        <a href="{{route('settings.index')}}"><i class="fa fa-cogs"></i><span class="right-nav-text">{{trans('main_trans.Settings')}} </span></a>
                     </li>
+
+
 
 
                     <!-- Users-->
