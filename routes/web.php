@@ -78,8 +78,8 @@ Route::group(
 
         // Route::get('/', [HomeController::class, 'index'])->name('selection');
         // Route::get('/login', [HomeController::class, 'login'])->name('login');
-        // Route::post('/dashboard', [HomeController::class, 'dashboard'])->middleware('auth')->name('dashboard');
-        // Route::get('/en/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+        // // Route::post('/dashboard', [HomeController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+        // // Route::get('/en/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
         // Route::group(['prefix' => 'login'], function () {
 
