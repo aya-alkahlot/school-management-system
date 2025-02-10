@@ -23,4 +23,5 @@ return [
     'Delete'=>'حذف',
     'delete_Class_Error'=>'لا يمكن حذف الصف لانه يحتوي علي اقسام',
     'Close' => 'اغلاق',
+    'Number_of_classes'=>'عدد الفصول الدراسيه'
 ];

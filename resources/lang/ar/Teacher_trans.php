@@ -13,5 +13,7 @@ return [
     'Gender'=>'النوع',
     'Joining_Date'=>'تاريخ التعين',
     'Address'=>'العنوان',
-    'Operations'=>'العمليات'
+    'Operations'=>'العمليات',
+    'Number_of_teachers'=>'عدد المعلمين',
+    'Teachers'=>'المعلمين'
 ];

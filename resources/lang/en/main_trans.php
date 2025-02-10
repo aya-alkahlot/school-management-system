@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Admin_panel_control_panel'=>'Admin panel control panel',
     'Dashboard'=>'Dashboard',
     'Components'=>'Components',
     'Dashboard_page'=>'Dashboard',
@@ -41,7 +41,10 @@ return [
     'Copyright' => 'Copyright',
     'Name_Programer' => 'School management software',
     'Study_materials'=>'Study Materials',
-    
+    'Display_data'=>'Display data',
+    'Latest_operations_on_the_system'=>'Latest operations on the system',
+    'Invoices'=>'Invoices',
+    'Profile'=>'Profile'
 
 
 ];

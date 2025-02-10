@@ -1,38 +1,35 @@
+<?php
 
-    public function index()
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSubjectsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
     {
-        $exams = Exam::get();
-        return view('pages.Exams.index', compact('exams'));
+        Schema::create('subjects', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignId('teacher_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
-    public function create()
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
     {
-        return view('pages.Exams.create');
-    }
-
-    public function store($request)
-    {
-        try {
-
-            $exams = new Exam();
-            $exams->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $exams->term = $request->term;
-            $exams->academic_year = $request->academic_year;
-            $exams->save();
-            toastr()->success(trans('messages.success'));
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
-    }
-
-    public function update($request)
-    {
-        // TODO: Implement update() method.
-    }
-
-    public function destroy($request)
-    {
-        // TODO: Implement destroy() method.
+        Schema::dropIfExists('subjects');
     }
 }

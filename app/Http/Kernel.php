@@ -73,13 +73,7 @@ class Kernel extends HttpKernel
         'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
         'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
-        'setLocale' => \App\Http\Middleware\SetLocale::class,
-        // 'admin' => \App\Http\Middleware\AdminMiddleware::class,
-        // 'teacher' => \App\Http\Middleware\TeacherMiddleware::class,
-        // 'parent' => \App\Http\Middleware\ParentMiddleware::class,
-        // 'student' => \App\Http\Middleware\StudentMiddleware::class,
-
-    
+        // 'setLocale' => \App\Http\Middleware\SetLocale::class,
     ];
 
 }

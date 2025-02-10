@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Admin_panel_control_panel'=>'لوحة تحكم الادمن',
     'Dashboard'=>'الرئيسية',
     'Components'=>'العناصر',
     'Dashboard_page'=>'لوحة التحكم',
@@ -39,7 +40,10 @@ return [
     'Copyright' => 'جميع الحقوق محفوظة ',
     'Name_Programer' => 'برنامج اداره المدارس',
     'Study_materials'=>'المواد الدراسيه',
-
+    'Display_data'=>'عرض البيانات',
+    'Latest_operations_on_the_system'=>'اخر العمليات علي النظام',
+    'Invoices'=>'الفواتير',
+    'Profile'=>'الملف الشخصي'
 
 
 ];

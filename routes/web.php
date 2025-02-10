@@ -41,7 +41,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // Auth::routes();
 
 Route::get('/',  [HomeController::class, 'index'])->name('selection');
-Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
+// Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
 
 
 Route::group(['namespace' => 'Auth'], function () {
@@ -60,7 +60,7 @@ Route::group(
         //==============================dashboard============================
 
 
-
+        Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
 
         // Auth::routes();
 
@@ -141,7 +141,7 @@ Route::group(
 
 
         //==============================Start dashboard page of parent===========================
-        Route::view('add_parent', 'livewire.show_Form');
+        Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
 
         Livewire::setUpdateRoute(function ($handle) {
             return Route::post('/en/livewire/update', $handle);
@@ -328,6 +328,8 @@ Route::group(
             Route::delete('/library/destroy', [LibraryController::class, 'destroy'])->name('library.destroy');
         });
         //==============================End dashboard page of library===========================
+
+        
         //==============================Start dashboard page of library==========================
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');

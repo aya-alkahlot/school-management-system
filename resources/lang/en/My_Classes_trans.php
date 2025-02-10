@@ -23,7 +23,7 @@ return [
     'Delete'=>'Delete',
     'delete_Class_Error'=>'The Class cannot be Deleted because it contains Sections',
     'Close' => 'Close',
-
+    'Number_of_classes'=>'Number of classes'
 
 
 ];

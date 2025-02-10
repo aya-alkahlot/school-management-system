@@ -41,8 +41,8 @@
             <div class="page-title" >
                 <div class="row">
                     <div class="col-sm-6" >
-                    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('main_trans.Admin_panel_control_panel')}}</h4>
-                    </div>
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبا بك : {{auth()->user()->Name}}</h4>
+                    </div><br><br>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
                         </ol>
@@ -51,47 +51,7 @@
             </div>
             <!-- widgets -->
             <div class="row" >
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-success">
-                                    <i class="fa fa-graduation-cap highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                <p class="card-text text-dark">{{trans('Students_trans.Number_of_students')}}</p>
-                                <h4>{{\App\Models\Student::count()}}</h4>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Students.index')}}" target="_blank"><span class="text-danger">{{trans('main_trans.Display_data')}}</span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-warning">
-                                    <i class="fa fa-users highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">{{trans('Teacher_trans.Number_of_teachers')}}</p>
-                                    <h4>{{\App\Models\Teacher::count()}}</h4>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Teachers.index')}}" target="_blank"><span class="text-danger">{{trans('main_trans.Display_data')}} </span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-6 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -101,32 +61,32 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">{{trans('Parent_trans.Number_of_parents')}}</p>
-                                    <h4>{{\App\Models\My_Parent::count()}}</h4>
+                                    <p class="card-text text-dark">عدد الطلاب</p>
+                                    <h4>{{\App\Models\Student::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('add_parent')}}" target="_blank"><span class="text-danger">{{trans('main_trans.Display_data')}}</span></a>
+                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Students.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-6 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-primary">
-                                    <i class="fa fa-desktop highlight-icon" aria-hidden="true"></i>
+                                    <span class="text-warning">
+                                        <i class="fa fa-users highlight-icon" aria-hidden="true"></i>
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">{{trans('My_Classes_trans.Number_of_classes')}}</p>
+                                    <p class="card-text text-dark">عدد الاقسام</p>
                                     <h4>{{\App\Models\Section::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Sections.index')}}" target="_blank"><span class="text-danger">{{trans('main_trans.Display_data')}}</span></a>
+                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Sections.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
@@ -143,7 +103,7 @@
                             <div class="tab nav-border" style="position: relative;">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <div class="d-block w-100">
-                                        <h5 style="font-family: 'Cairo', sans-serif" class="card-title">{{trans('main_trans.Latest_operations_on_the_system')}}</h5>
+                                        <h5 style="font-family: 'Cairo', sans-serif" class="card-title">اخر العمليات علي النظام</h5>
                                     </div>
                                     <div class="d-block d-md-flex nav-tabs-custom">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -151,24 +111,24 @@
                                             <li class="nav-item">
                                                 <a class="nav-link active show" id="students-tab" data-toggle="tab"
                                                    href="#students" role="tab" aria-controls="students"
-                                                   aria-selected="true">{{trans('Students_trans.Students')}}</a>
+                                                   aria-selected="true"> الطلاب</a>
                                             </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" id="teachers-tab" data-toggle="tab" href="#teachers"
-                                                   role="tab" aria-controls="teachers" aria-selected="false">{{trans('Teacher_trans.Teachers')}}
+                                                   role="tab" aria-controls="teachers" aria-selected="false">المعلمين
                                                 </a>
                                             </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" id="parents-tab" data-toggle="tab" href="#parents"
-                                                   role="tab" aria-controls="parents" aria-selected="false">{{trans('Parent_trans.Parents')}}
+                                                   role="tab" aria-controls="parents" aria-selected="false">اولياء الامور
                                                 </a>
                                             </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" id="fee_invoices-tab" data-toggle="tab" href="#fee_invoices"
-                                                   role="tab" aria-controls="fee_invoices" aria-selected="false">{{trans('main_trans.Invoices')}}
+                                                   role="tab" aria-controls="fee_invoices" aria-selected="false">الفواتير
                                                 </a>
                                             </li>
 

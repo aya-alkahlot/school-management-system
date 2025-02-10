@@ -43,17 +43,17 @@ return [
 
         'student' => [
             'driver' => 'session',
-            'provider' => 'students',
+            'provider' => 'student',
         ],
 
         'teacher' => [
             'driver' => 'session',
-            'provider' => 'teachers',
+            'provider' => 'teacher',
         ],
 
         'parent' => [
             'driver' => 'session',
-            'provider' => 'my__parents',
+            'provider' => 'parent',
         ],
 
 
@@ -82,17 +82,17 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'students' => [
+        'student' => [
             'driver' => 'eloquent',
             'model' => App\Models\Student::class,
         ],
 
-        'teachers' => [
+        'teacher' => [
             'driver' => 'eloquent',
             'model' => App\Models\Teacher::class,
         ],
 
-        'my__parents' => [
+        'parent' => [
             'driver' => 'eloquent',
             'model' => App\Models\My_Parent::class,
         ],

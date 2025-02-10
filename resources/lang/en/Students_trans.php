@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Student_control_panel'=>'Student control panel',
     'personal_information' => 'personal information',
     'name' => 'Name',
     'name_ar' => 'name_ar',
@@ -133,5 +133,7 @@ return [
     'School_address'=>'School address',
     'End_of_first_semester'=>'End of first semester',
     'End_of_second_semester'=>'End of second semester',
-    'School_logo'=>'School logo'
+    'School_logo'=>'School logo',
+    'Number_of_students'=>'Number of students',
+    'Students'=>'Students'
 ];

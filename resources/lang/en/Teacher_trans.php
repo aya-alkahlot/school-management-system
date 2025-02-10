@@ -13,5 +13,7 @@ return [
     'Gender'=>'Gender',
     'Joining_Date'=>'Joining_Date',
     'Address'=>'Address',
-    'Operations'=>'Operations'
+    'Operations'=>'Operations',
+    'Number_of_teachers'=>'Number of teachers',
+    'Teachers'=>'Teachers'
 ];

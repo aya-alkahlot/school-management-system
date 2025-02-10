@@ -10,34 +10,37 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-   // use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
-   use AuthTrait;
+    use AuthTrait;
 
-   public function __construct()
-   {
-       $this->middleware('guest')->except('logout');
-   }
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
 
-   public function loginForm($type)
-   {
+    public function loginForm($type)
+    {
+        return view('auth.login', compact('type'));
+    }
 
-       return view('auth.login', compact('type'));
-   }
-   public function login(Request $request)
-   {
+    public function login(Request $request)
+    {
 
-       if (Auth::guard($this->chekGuard($request))->attempt(['email' => $request->email, 'password' => $request->password])) {
-           return $this->redirect($request);
-       }
-   }
+        if (Auth::guard($this->chekGuard($request))->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return $this->redirect($request);
+        } else {
+            return redirect()->back();
+        }
+    }
 
-   public function logout(Request $request, $type)
-   {
-       Auth::guard($type)->logout();
-       $request->session()->invalidate();
-       $request->session()->regenerateToken();
-       return redirect('/');
-   }
+
+    public function logout(Request $request, $type)
+    {
+        Auth::guard($type)->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
