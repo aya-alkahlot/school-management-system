@@ -265,7 +265,7 @@
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$parent->Name_Father}}</td>
-                                                        <td>{{$parent->email}}</td>
+                                                        <td>{{$parent->Email}}</td>
                                                         <td>{{$parent->National_ID_Father}}</td>
                                                         <td>{{$parent->Phone_Father}}</td>
                                                         <td class="text-success">{{$parent->created_at}}</td>

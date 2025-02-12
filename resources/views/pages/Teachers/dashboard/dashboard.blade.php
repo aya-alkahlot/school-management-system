@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Students.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
+                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('student.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Sections.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
+                                <i class="fa fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('sections')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$parent->Name_Father}}</td>
-                                                        <td>{{$parent->email}}</td>
+                                                        <td>{{$parent->Email}}</td>
                                                         <td>{{$parent->National_ID_Father}}</td>
                                                         <td>{{$parent->Phone_Father}}</td>
                                                         <td class="text-success">{{$parent->created_at}}</td>
@@ -281,7 +281,6 @@
                 </div>
             </div>
 
-            <livewire:calendar />
 
             <!--=================================
  wrapper -->

@@ -14,14 +14,14 @@
 
         <!-- الاقسام-->
         <li>
-            <a href="{{route('Sections.index')}}"><i class="fa fa-sitemap"></i></i><span
+            <a href="{{route('sections')}}"><i class="fa fa-sitemap"></i></i><span
                     class="right-nav-text">{{trans('main_trans.sections')}}</span></a>
         </li>
 
 
         <!-- الطلاب-->
         <li>
-            <a href="{{route('Students.index')}}"><i class="fa fa-graduation-cap"></i></i></i><span
+            <a href="{{route('student.index')}}"><i class="fa fa-graduation-cap"></i></i></i><span
                     class="right-nav-text">{{trans('main_trans.students')}}</span></a>
         </li>
 
