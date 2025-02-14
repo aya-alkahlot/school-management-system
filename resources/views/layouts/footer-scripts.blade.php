@@ -5,7 +5,6 @@
 <!-- plugin_path -->
 <script>
     var plugin_path = 'js/';
-
 </script>
 <!-- <script type="text/javascript">var plugin_path = '{{ asset('assets/js') }}/';</script> -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -37,17 +36,17 @@
 <script>
     $(document).ready(function() {
         $('#datatable').DataTable();
-    } );
+    });
 </script>
 
 
 
 @if (App::getLocale() == 'en')
-    <script src="{{ URL::asset('assets/js/bootstrap-datatables/en/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/bootstrap-datatables/en/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/bootstrap-datatables/en/jquery.dataTables.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/bootstrap-datatables/en/dataTables.bootstrap4.min.js') }}"></script>
 @else
-    <script src="{{ URL::asset('assets/js/bootstrap-datatables/ar/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/bootstrap-datatables/ar/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/bootstrap-datatables/ar/jquery.dataTables.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/bootstrap-datatables/ar/dataTables.bootstrap4.min.js') }}"></script>
 @endif
 
 
@@ -68,52 +67,52 @@
         }
     }
 </script>
-<!-- <script>
-        $(document).ready(function () {
-            $('select[name="Grade_id"]').on('change', function () {
-                var Grade_id = $(this).val();
-                if (Grade_id) {
-                    $.ajax({
-                        url: "{{ URL::to('/Students/Get_classrooms') }}/" + Grade_id,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="Class_id"]').empty();
-                            $.each(data, function (key, value) {
-                                $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
-                            });
-                        },
-                    });
-                } else {
-                    console.log('AJAX load did not work');
-                }
-            });
-        });
-    </script> -->
-
-
-    
 <script>
-    $(document).ready(function () {
-        $('select[name="Grade_id"]').on('change', function () {
+    $(document).ready(function() {
+        $('select[name="Grade_id"]').on('change', function() {
             var Grade_id = $(this).val();
             if (Grade_id) {
                 $.ajax({
                     url: "{{ URL::to('/Students/Get_classrooms') }}/" + Grade_id,
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
+                        $('select[name="Class_id"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+
+
+
+
+<script>
+    $(document).ready(function() {
+        $('select[name="Grade_id"]').on('change', function() {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                $.ajax({
+                    url: "{{ URL::to('/Students/Get_classrooms') }}/" + Grade_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
                         $('select[name="Classroom_id"]').empty();
-                        $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
-                        $.each(data, function (key, value) {
+                        $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('
+                            Parent_trans.Choose ')}}...</option>');
+                        $.each(data, function(key, value) {
                             $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
                         });
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
@@ -122,25 +121,23 @@
 
 
 <script>
-    $(document).ready(function () {
-        $('select[name="Classroom_id"]').on('change', function () {
+    $(document).ready(function() {
+        $('select[name="Classroom_id"]').on('change', function() {
             var Classroom_id = $(this).val();
             if (Classroom_id) {
                 $.ajax({
                     url: "{{ URL::to('/Students/Get_Sections') }}/" + Classroom_id,
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
                         $('select[name="section_id"]').empty();
-                        $.each(data, function (key, value) {
+                        $.each(data, function(key, value) {
                             $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
                         });
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
@@ -148,28 +145,27 @@
 </script>
 
 
-    
+
 <script>
-    $(document).ready(function () {
-        $('select[name="Grade_id_new"]').on('change', function () {
+    $(document).ready(function() {
+        $('select[name="Grade_id_new"]').on('change', function() {
             var Grade_id = $(this).val();
             if (Grade_id) {
                 $.ajax({
                     url: "{{ URL::to('/Students/Get_classrooms') }}/" + Grade_id,
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
                         $('select[name="Classroom_id_new"]').empty();
-                        $('select[name="Classroom_id_new"]').append('<option selected disabled >{{trans('Parent_trans.Choose')}}...</option>');
-                        $.each(data, function (key, value) {
+                        $('select[name="Classroom_id_new"]').append('<option selected disabled >{{trans('
+                            Parent_trans.Choose ')}}...</option>');
+                        $.each(data, function(key, value) {
                             $('select[name="Classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
                         });
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
@@ -178,29 +174,25 @@
 
 
 <script>
-    $(document).ready(function () {
-        $('select[name="Classroom_id_new"]').on('change', function () {
+    $(document).ready(function() {
+        $('select[name="Classroom_id_new"]').on('change', function() {
             var Classroom_id = $(this).val();
             if (Classroom_id) {
                 $.ajax({
                     url: "{{ URL::to('/Students/Get_Sections') }}/" + Classroom_id,
                     type: "GET",
                     dataType: "json",
-                    success: function (data) {
+                    success: function(data) {
                         $('select[name="section_id_new"]').empty();
-                        $.each(data, function (key, value) {
+                        $.each(data, function(key, value) {
                             $('select[name="section_id_new"]').append('<option value="' + key + '">' + value + '</option>');
                         });
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
     });
 </script>
-
-
