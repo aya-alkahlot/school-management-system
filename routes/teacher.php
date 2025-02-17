@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Teachers\dashboard\QuizzController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Teachers\dashboard\StudentController;
+use App\Http\Controllers\Teachers\dashboard\QuestionController;
 
 Route::group(
     [
@@ -39,12 +40,19 @@ Route::group(
             Route::get('/quizzes', [QuizzController::class, 'index'])->name('quizzes.index');
             Route::get('/quizzes/create',  [QuizzController::class, 'create'])->name('quizzes.create');
             Route::post('/quizzes/store', [QuizzController::class, 'store'])->name('quizzes.store');
-            Route::get('/edit/{id}', [QuizzController::class, 'edit'])->name('quizzes.edit');
+            Route::get('/quizzes/edit/{id}',  [QuizzController::class, 'edit'])->name('quizzes.edit');
             Route::put('/quizzes/update', [QuizzController::class, 'update'])->name('quizzes.update');
+            Route::get('/quizzes/show/{id}', [QuizzController::class, 'show'])->name('quizzes.show');
             Route::delete('/quizzes/destroy/{id}', [QuizzController::class, 'destroy'])->name('quizzes.destroy');
 
-            Route::get('/Get_classrooms/{id}', [QuizzController::class, 'getClassrooms'])->name('getClassrooms');
-            Route::get('/Get_Sections/{id}', [QuizzController::class, 'Get_Sections'])->name('Get_Sections');
+            Route::post('/questions/store', [QuestionController::class, 'store'])->name('questions.store');
+            Route::get('/questions/show/{id}', [QuestionController::class, 'show'])->name('questions.show');
+            Route::get('/questions/edit/{id}',  [QuestionController::class, 'edit'])->name('questions.edit');
+            Route::put('/questions/update/{id}', [QuestionController::class, 'update'])->name('questions.update');
+            Route::delete('/questions/destroy/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
+
+            // Route::get('/Get_classrooms/{id}', [QuizzController::class, 'getClassrooms'])->name('getClassrooms');
+            // Route::get('/Get_Sections/{id}', [QuizzController::class, 'Get_Sections'])->name('Get_Sections');
         });
 
 

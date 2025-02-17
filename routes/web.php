@@ -165,8 +165,8 @@ Route::group(
         Route::group(['prefix' => 'Students'], function () {
             Route::get('/Students', [StudentController::class, 'index'])->name('Students.index');
             Route::get('/Students/create',  [StudentController::class, 'create'])->name('Students.create');
-            Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
-            Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
+            // Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
+            // Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
             Route::post('/Students/store', [StudentController::class, 'store'])->name('Students.store');
             Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('Students.edit');
             Route::get('/students/{id}', [StudentController::class, 'show'])->name('Students.show');

@@ -6,6 +6,7 @@ use App\Models\Grade;
 use App\Models\Quizze;
 use App\Models\Section;
 use App\Models\Subject;
+use App\Models\Question;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -55,6 +56,12 @@ class QuizzController extends Controller
         $data['grades'] = Grade::all();
         $data['subjects'] = Subject::where('teacher_id',auth()->user()->id)->get();
         return view('pages.Teachers.dashboard.Quizzes.edit', $data, compact('quizz'));
+    }
+    public function show($id)
+    {
+        $questions = Question::where('quizze_id',$id)->get();
+        $quizz = Quizze::findorFail($id);
+        return view('pages.Teachers.dashboard.Questions.index',compact('questions','quizz'));
     }
 
 
