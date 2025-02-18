@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teachers\dashboard;
+namespace App\Http\Controllers;
 
 use App\Models\Section;
 use App\Models\Classroom;
