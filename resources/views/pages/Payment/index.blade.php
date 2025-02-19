@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    سندات الصرف
+{{trans('Students_trans.Exchange_bonds') }} 
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   سندات الصرف
+{{trans('Students_trans.Exchange_bonds') }} 
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -28,10 +28,10 @@
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
-                                            <th>الاسم</th>
-                                            <th>المبلغ</th>
-                                            <th>البيان</th>
-                                            <th>العمليات</th>
+                                            <th>{{ trans('Students_trans.title') }}</th>
+                                            <th>{{ trans('Students_trans.Amount') }}</th>
+                                            <th>{{ trans('Students_trans.Statement') }}</th>
+                                            <th>{{ trans('Students_trans.Processes') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

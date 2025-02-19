@@ -72,6 +72,53 @@
 
     @toastr_js
     @toastr_render
+    <script>
+    $(document).ready(function() {
+        $('select[name="Grade_id"]').on('change', function() {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                $.ajax({
+                    url: "{{ route('getClassrooms', ':id') }}".replace(':id', Grade_id),
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="Classroom_id"]').empty();
+                        $('select[name="Classroom_id"]').append('<option selected disabled >اختر...</option>');
+                        $.each(data, function(key, value) {
+                            $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
 
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('select[name="Classroom_id"]').on('change', function() {
+            var Classroom_id = $(this).val();
+            if (Classroom_id) {
+                $.ajax({
+                    url: "{{ route('Get_Sections', ':id') }}".replace(':id', Classroom_id),
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="section_id"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
 
 @endsection

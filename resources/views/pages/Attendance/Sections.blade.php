@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{ trans('Sections_trans.title_page') }}: الحضور والغياب
+    {{ trans('Sections_trans.title_page') }}: {{ trans('Students_trans.Presence_and_Absence') }} 
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{ trans('Sections_trans.title_page') }}: الحضور والغياب
+    {{ trans('Sections_trans.title_page') }}:  {{ trans('Students_trans.Presence_and_Absence') }}
 @stop
 <!-- breadcrumb -->
 @endsection

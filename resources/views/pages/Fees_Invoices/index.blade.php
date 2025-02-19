@@ -28,13 +28,13 @@
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
-                                            <th>الاسم</th>
-                                            <th>نوع الرسوم</th>
-                                            <th>المبلغ</th>
-                                            <th>المرحلة الدراسية</th>
-                                            <th>الصف الدراسي</th>
-                                            <th>البيان</th>
-                                            <th>العمليات</th>
+                                            <th>{{  trans('Students_trans.name')}}</th>
+                                            <th>{{ trans('Students_trans.Fee_type') }}</th>
+                                            <th>{{ trans('Students_trans.Amount') }}</th>
+                                            <th>{{ trans('Students_trans.Academic_stage') }}</th>
+                                            <th>{{ trans('Students_trans.classrooms') }}</th>
+                                            <th>{{ trans('Students_trans.Statement') }}</th>
+                                            <th>{{ trans('Students_trans.Processes') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

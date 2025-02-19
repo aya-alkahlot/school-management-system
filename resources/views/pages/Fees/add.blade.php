@@ -2,13 +2,12 @@
 @section('css')
     @toastr_css
 @section('title')
-    اضافة رسوم جديدة
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    اضافة رسوم جديدة
+{{  trans('Students_trans.Add_new_fees')}} 
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -84,8 +83,8 @@
                             <div class="form-group col">
                                 <label for="inputZip">{{trans('Students_trans.Fee_type')}}</label>
                                 <select class="custom-select mr-sm-2" name="Fee_type">
-                                    <option value="1">رسوم دراسية</option>
-                                    <option value="2">رسوم باص</option>
+                                    <option value="1">{{ trans('Students_trans.Tuition_fee') }}</option>
+                                    <option value="2">{{ trans('Students_trans.Bus_fees') }}</option>
                                 </select>
                             </div>
                         </div>
@@ -109,4 +108,52 @@
 @section('js')
     @toastr_js
     @toastr_render
+    <script>
+    $(document).ready(function() {
+        $('select[name="Grade_id"]').on('change', function() {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                $.ajax({
+                    url: "{{ route('getClassrooms', ':id') }}".replace(':id', Grade_id),
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="Classroom_id"]').empty();
+                        $('select[name="Classroom_id"]').append('<option selected disabled >اختر...</option>');
+                        $.each(data, function(key, value) {
+                            $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('select[name="Classroom_id"]').on('change', function() {
+            var Classroom_id = $(this).val();
+            if (Classroom_id) {
+                $.ajax({
+                    url: "{{ route('Get_Sections', ':id') }}".replace(':id', Classroom_id),
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="section_id"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
 @endsection

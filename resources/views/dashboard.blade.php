@@ -184,13 +184,13 @@
                                                 <thead>
                                                 <tr  class="table-info text-danger">
                                                     <th>#</th>
-                                                    <th>اسم الطالب</th>
-                                                    <th>البريد الالكتروني</th>
-                                                    <th>النوع</th>
-                                                    <th>المرحلة الدراسية</th>
-                                                    <th>الصف الدراسي</th>
-                                                    <th>القسم</th>
-                                                    <th>تاريخ الاضافة</th>
+                                                    <th>{{ trans('Students_trans.name') }}</th>
+                                                    <th>{{ trans('Students_trans.email') }}</th>
+                                                    <th>{{ trans('Students_trans.gender') }}</th>
+                                                    <th>{{ trans('Students_trans.Grade') }}</th>
+                                                    <th>{{ trans('Students_trans.classrooms') }}</th>
+                                                    <th>{{ trans('Students_trans.section') }}</th>
+                                                    <th>{{ trans('Students_trans.Date_added') }}</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -205,7 +205,7 @@
                                                         <td>{{$student->section->Name_Section}}</td>
                                                         <td class="text-success">{{$student->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            <td class="alert-danger" colspan="8">{{ trans('Students_trans.No_data_found') }}</td>
                                                     </tr>
                                                 @endforelse
                                                 </tbody>
@@ -220,11 +220,11 @@
                                                 <thead>
                                                 <tr  class="table-info text-danger">
                                                     <th>#</th>
-                                                    <th>اسم المعلم</th>
-                                                    <th>النوع</th>
-                                                    <th>تاريخ التعين</th>
-                                                    <th>التخصص</th>
-                                                    <th>تاريخ الاضافة</th>
+                                                    <th>{{ trans('Teacher_trans.Name_Teacher') }}</th>
+                                                    <th>{{ trans('Students_trans.gender') }}</th>
+                                                    <th>{{ trans('Teacher_trans.Joining_Date') }}</th>
+                                                    <th>{{ trans('Teacher_trans.specialization') }}</th>
+                                                    <th>{{ trans('Students_trans.Date_added') }}</th>
                                                 </tr>
                                                 </thead>
 
@@ -238,7 +238,7 @@
                                                         <td>{{$teacher->specializations->Name}}</td>
                                                         <td class="text-success">{{$teacher->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            <td class="alert-danger" colspan="8">{{ trans('Students_trans.No_data_found') }}</td>
                                                     </tr>
                                                     </tbody>
                                                 @endforelse
@@ -253,11 +253,11 @@
                                                 <thead>
                                                 <tr  class="table-info text-danger">
                                                     <th>#</th>
-                                                    <th>اسم ولي الامر</th>
-                                                    <th>البريد الالكتروني</th>
-                                                    <th>رقم الهوية</th>
-                                                    <th>رقم الهاتف</th>
-                                                    <th>تاريخ الاضافة</th>
+                                                    <th>{{ trans('Students_trans.Guardian_name') }}</th>
+                                                    <th>{{ trans('Students_trans.email') }}</th>
+                                                    <th>{{ trans('Parent_trans.National_ID_Mother') }}</th>
+                                                    <th>{{ trans('Parent_trans.Phone_Mother') }}</th>
+                                                    <th>{{ trans('Students_trans.created_at') }}</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -270,7 +270,7 @@
                                                         <td>{{$parent->Phone_Father}}</td>
                                                         <td class="text-success">{{$parent->created_at}}</td>
                                                         @empty
-                                                            <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            <td class="alert-danger" colspan="8">{{ trans('Students_trans.No_data_found') }}</td>
                                                     </tr>
                                                 @endforelse
                                                 </tbody>
@@ -285,14 +285,14 @@
                                                 <thead>
                                                 <tr  class="table-info text-danger">
                                                     <th>#</th>
-                                                    <th>تاريخ الفاتورة</th>
-                                                    <th>اسم الطالب</th>
-                                                    <th>المرحلة الدراسية</th>
-                                                    <th>الصف الدراسي</th>
-                                                    <th>القسم</th>
-                                                    <th>نوع الرسوم</th>
-                                                    <th>المبلغ</th>
-                                                    <th>تاريخ الاضافة</th>
+                                                    <th>{{ trans('Students_trans.Invoice_date') }}</th>
+                                                    <th>{{ trans('Students_trans.name') }}</th>
+                                                    <th>{{ trans('Students_trans.Grade') }}</th>
+                                                    <th>{{ trans('Students_trans.classrooms') }}</th>
+                                                    <th>{{ trans('Students_trans.section') }}</th>
+                                                    <th>{{ trans('Students_trans.Fee_type') }}</th>
+                                                    <th>{{ trans('Students_trans.Amount') }}</th>
+                                                    <th>{{ trans('Students_trans.created_at') }}</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -305,7 +305,7 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td class="alert-danger" colspan="9">لاتوجد بيانات</td>
+                                                        <td class="alert-danger" colspan="9">{{ trans('Students_trans.No_data_found') }}</td>
                                                     </tr>
                                                 @endforelse
                                                 </tbody>

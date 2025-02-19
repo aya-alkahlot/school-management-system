@@ -13,7 +13,7 @@
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="id" value="{{$payment_student->id}}">
-                    <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد مع عملية الحذف ؟</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">{{ trans('Students_trans.Are_you_sure_about_the_deletion_process') }}</h5>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>
                         <button  class="btn btn-danger">{{trans('Students_trans.submit')}}</button>

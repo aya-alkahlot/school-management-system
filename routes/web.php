@@ -1,12 +1,10 @@
 <?php
 
 use Livewire\Livewire;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Exams\ExamController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Quizzes\QuizzController;
 use App\Http\Controllers\Students\FeesController;
@@ -165,8 +163,8 @@ Route::group(
         Route::group(['prefix' => 'Students'], function () {
             Route::get('/Students', [StudentController::class, 'index'])->name('Students.index');
             Route::get('/Students/create',  [StudentController::class, 'create'])->name('Students.create');
-            // Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
-            // Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
+            Route::get('/Get_classrooms/{id}',  [StudentController::class, 'Get_classrooms']);
+            Route::get('/Get_Sections/{id}',  [StudentController::class, 'Get_Sections']);
             Route::post('/Students/store', [StudentController::class, 'store'])->name('Students.store');
             Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('Students.edit');
             Route::get('/students/{id}', [StudentController::class, 'show'])->name('Students.show');
@@ -280,7 +278,6 @@ Route::group(
             Route::delete('/subjects/destroy', [SubjectController::class, 'destroy'])->name('subjects.destroy');
         });
         //==============================End dashboard page of Subjects==========================
-
 
         //==============================Start dashboard page of Quizzes=========================
         Route::group(['prefix' => 'Quizzes'], function () {

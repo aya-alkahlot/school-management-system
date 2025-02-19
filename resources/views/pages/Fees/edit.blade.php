@@ -84,8 +84,8 @@
                         <div class="form-group col">
                             <label for="inputZip">{{trans('Students_trans.Fee_type')}}</label>
                             <select class="custom-select mr-sm-2" name="Fee_type">
-                                <option value="1">رسوم دراسية</option>
-                                <option value="2">رسوم باص</option>
+                            <option value="1">{{ trans('Students_trans.Tuition_fee') }}</option>
+                            <option value="2">{{ trans('Students_trans.Bus_fees') }}</option>
                             </select>
                         </div>
                     </div>

@@ -135,5 +135,21 @@ return [
     'End_of_second_semester'=>'End of second semester',
     'School_logo'=>'School logo',
     'Number_of_students'=>'Number of students',
-    'Students'=>'Students'
+    'Students'=>'Students',
+    'Date_added'=>'Date added',
+    'No_data_found'=>'No data found',
+    'Guardian_name'=>'Guardian is name',
+    'Invoice_date'=>'Invoice date',
+    'Add_new_fees'=>'Add New Fees',
+    'Tuition_fee'=>'Tuition fees',
+    'Bus_fees'=>'Bus fees',
+    'Student_attendance_list'=>'Student Attendance list',
+    'presence'=>'presence',
+    'absence'=>'absence',
+    'Presence_and_Absence'=>'Presence and Absence',
+    'Delete_invoice'=>'Delete invoice',
+    'Delete_book'=>'Delete book',
+    'Join_now'=>'Join now',
+    'Student_Balance'=>'Student Balance',
+    'Modify_a_paymen_voucher'=>'Modify a paymen voucher'
 ];
