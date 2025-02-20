@@ -44,7 +44,14 @@ return [
     'Display_data'=>'Display data',
     'Latest_operations_on_the_system'=>'Latest operations on the system',
     'Invoices'=>'Invoices',
-    'Profile'=>'Profile'
+    'Profile'=>'Profile',
+    'Welcome'=>'Welcome',
+    'all'=>'all',
+    'To_date'=>'To date',
+    'the_date'=>'The date',
+    'the_condition'=>'The Condition',
+    'Show_password'=>'Show password',
+    'Modify_data'=>'Modify data'
 
 
 ];

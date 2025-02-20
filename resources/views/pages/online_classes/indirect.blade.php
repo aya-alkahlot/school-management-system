@@ -69,7 +69,7 @@
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>رقم الاجتماع : <span class="text-danger">*</span></label>
+                                <label>{{ trans('Students_trans.Meeting_number') }}: <span class="text-danger">*</span></label>
                                 <input class="form-control" name="meeting_id" type="number">
                             </div>
                         </div>
@@ -97,7 +97,7 @@
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label>كلمة المرور الاجتماع : <span class="text-danger">*</span></label>
+                                <label>{{ trans('Students_trans.Meeting_password') }}: <span class="text-danger">*</span></label>
                                 <input class="form-control" name="password" type="text">
                             </div>
                         </div>
@@ -109,14 +109,14 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>لينك البدء : <span class="text-danger">*</span></label>
+                                <label>{{ trans('Students_trans.Link_to_start') }}: <span class="text-danger">*</span></label>
                                 <input class="form-control" name="start_url" type="text">
                             </div>
                         </div>
 
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label>لينك الدخول للطلاب : <span class="text-danger">*</span></label>
+                                <label>{{ trans('Students_trans.Login_link_for_students') }} : <span class="text-danger">*</span></label>
                                 <input class="form-control" name="join_url" type="text">
                             </div>
                         </div>

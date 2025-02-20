@@ -15,5 +15,7 @@ return [
     'Address'=>'العنوان',
     'Operations'=>'العمليات',
     'Number_of_teachers'=>'عدد المعلمين',
-    'Teachers'=>'المعلمين'
+    'Teachers'=>'المعلمين',
+    'Teacher'=>'معلم',
+   'marke'=> 'يجب فصل بعلامه - بين الاسئله'
 ];

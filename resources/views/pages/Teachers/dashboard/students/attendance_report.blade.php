@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-    تقرير الحضور والغياب
+{{ trans('Students_trans.Attendance_and_absence_report') }}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    تقارير الحضور والغياب
+{{ trans('Students_trans.Attendance_and_absence_report') }}
 @stop
 <!-- breadcrumb -->
 
@@ -31,13 +31,13 @@
 
                 <form method="post"  action="{{ route('attendance.search') }}" autocomplete="off">
                     @csrf
-                    <h6 style="font-family: 'Cairo', sans-serif;color: blue">معلومات البحث</h6><br>
+                    <h6 style="font-family: 'Cairo', sans-serif;color: blue">{{ trans('Students_trans.Search_information') }}</h6><br>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="student">الطلاب</label>
+                                <label for="student">{{trans('Students_trans.Students')  }}</label>
                                 <select class="custom-select mr-sm-2" name="student_id">
-                                    <option value="0">الكل</option>
+                                    <option value="0">{{ trans('main_trans.all') }}</option>
                                     @foreach($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->name }}</option>
                                     @endforeach
@@ -48,7 +48,7 @@
                         <div class="card-body datepicker-form">
                             <div class="input-group" data-date-format="yyyy-mm-dd">
                                 <input type="text"  class="form-control range-from date-picker-default" placeholder="تاريخ البداية" required name="from">
-                                <span class="input-group-addon">الي تاريخ</span>
+                                <span class="input-group-addon">{{ trans('main_trans.To_date') }}</span>
                                 <input class="form-control range-to date-picker-default" placeholder="تاريخ النهاية" type="text" required name="to">
                             </div>
                         </div>
@@ -66,8 +66,8 @@
                             <th class="alert-success">{{trans('Students_trans.name')}}</th>
                             <th class="alert-success">{{trans('Students_trans.Grade')}}</th>
                             <th class="alert-success">{{trans('Students_trans.section')}}</th>
-                            <th class="alert-success">التاريخ</th>
-                            <th class="alert-warning">الحالة</th>
+                            <th class="alert-success">{{ trans('main_trans.the_date') }}</th>
+                            <th class="alert-warning">{{ trans('main_trans.the_condition') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -81,9 +81,9 @@
                                 <td>
 
                                     @if($student->attendence_status == 0)
-                                        <span class="btn-danger">غياب</span>
+                                        <span class="btn-danger">{{ trans('Students_trans.absence') }}</span>
                                     @else
-                                        <span class="btn-success">حضور</span>
+                                        <span class="btn-success">{{ trans('Students_trans.presence') }}</span>
                                     @endif
                                 </td>
                             </tr>

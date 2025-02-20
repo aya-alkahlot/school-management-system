@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="calendar-main mb-30">
-
-        </div>
+                <livewire:calendar-student />
+            </div>
             <!--=================================
  wrapper -->
 

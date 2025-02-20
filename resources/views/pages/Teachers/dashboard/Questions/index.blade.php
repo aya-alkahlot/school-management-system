@@ -2,13 +2,14 @@
 @section('css')
     @toastr_css
 @section('title')
-    قائمة الاسئلة
+{{trans('Students_trans.List_of_questions')}}
+
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-قائمة الاسئلة : <span class="text-danger">{{$quizz->name}}</span>
+{{trans('Students_trans.List_of_questions')}} : <span class="text-danger">{{$quizz->name}}</span>
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -29,12 +30,12 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">السؤال</th>
-                                            <th scope="col">الاجابات</th>
-                                            <th scope="col">الاجابة الصحيحة</th>
-                                            <th scope="col">الدرجة</th>
-                                            <th scope="col">اسم الاختبار</th>
-                                            <th scope="col">العمليات</th>
+                                            <th scope="col">{{trans('Students_trans.question')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Answers')}}</th>
+                                            <th scope="col">{{trans('Students_trans.the_right_answer')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Degree')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Test_name')}}</th>
+                                            <th scope="col">{{trans('Students_trans.Operations')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

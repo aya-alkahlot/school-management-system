@@ -43,7 +43,14 @@ return [
     'Display_data'=>'عرض البيانات',
     'Latest_operations_on_the_system'=>'اخر العمليات علي النظام',
     'Invoices'=>'الفواتير',
-    'Profile'=>'الملف الشخصي'
+    'Profile'=>'الملف الشخصي',
+    'Welcome'=>'مرحبا بك ',
+    'all'=>'الكل',
+   'To_date'=> 'الي تاريخ',
+   'the_date'=>'التاريخ',
+   'the_condition'=>'الحالة',
+  'Show_password'=> 'اظهار كلمة المرور',
+ 'Modify_data' =>'تعديل البيانات'
 
 
 ];

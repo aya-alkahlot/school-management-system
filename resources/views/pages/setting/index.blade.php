@@ -32,7 +32,8 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
                 <form enctype="multipart/form-data" method="post" action="{{route('settings.update','test')}}">
-                    @csrf @method('PUT')
+                    @csrf
+                     @method('PUT')
                     <div class="row">
                         <div class="col-md-6 border-right-2 border-right-blue-400">
                             <div class="form-group row">

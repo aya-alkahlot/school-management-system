@@ -14,14 +14,14 @@
 
         <!-- الاقسام-->
         <li>
-            <a href="{{route('sections')}}"><i class="fas fa-chalkboard"></i><span
-                    class="right-nav-text">الاقسام</span></a>
+            <a href="{{route('sections')}}"><i class="fa fa-sitemap"></i></i><span
+                    class="right-nav-text">{{trans('Sections_trans.title_page') }}</span></a>
         </li>
 
         <!-- الطلاب-->
         <li>
-            <a href="{{route('student.index')}}"><i class="fas fa-user-graduate"></i><span
-                    class="right-nav-text">الطلاب</span></a>
+            <a href="{{route('student.index')}}"><i class="fa fa-graduation-cap"></i></i></i><span
+                    class="right-nav-text">{{ trans('Students_trans.Students') }}</span></a>
         </li>
 
         <!-- Quizzes-->
@@ -40,35 +40,36 @@
         <!-- Online classes-->
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#Onlineclasses-icon">
-                <div class="pull-left"><i class="fas fa-video"></i><span class="right-nav-text">{{trans('main_trans.Onlineclasses')}}</span></div>
+                <div class="pull-left"><i class="fa fa-laptop"></i><span class="right-nav-text">{{trans('main_trans.Onlineclasses')}}</span></div>
                 <div class="pull-right"><i class="ti-plus"></i></div>
                 <div class="clearfix"></div>
             </a>
             <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                <li> <a href="{{route('online_zoom_classes.index')}}">حصص اونلاين مع زوم</a> </li>
+                <li> <a href="{{route('online_zoom_classes.index')}}">{{ trans('Students_trans.Online_classes') }}</a> </li>
             </ul>
         </li>
 
-        <!-- sections-->
+        <!-- Reports-->
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections-menu">
-                <div class="pull-left"><i class="fas fa-chalkboard"></i><span
-                        class="right-nav-text">التقارير</span></div>
+                <div class="pull-left"><i class="fa fa-book"></i><span
+                        class="right-nav-text">{{ trans('Students_trans.Reports') }}</span>
+                </div>
                 <div class="pull-right"><i class="ti-plus"></i></div>
                 <div class="clearfix"></div>
             </a>
             <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{route('attendance.report')}}">تقرير الحضور والغياب</a></li>
-                <li><a href="#">تقرير الامتحانات</a></li>
+                <li><a href="{{route('attendance.report')}}">{{ trans('Students_trans.Attendance_and_absence_report') }}</a></li>
+                <li><a href="#">{{ trans('Students_trans.Exam_report') }}</a></li>
             </ul>
 
         </li>
 
-      
+
         <!-- الملف الشخصي-->
         <li>
-            <a href="{{route('profile.show')}}"><i class="fas fa-id-card-alt"></i><span
-                    class="right-nav-text">الملف الشخصي</span></a>
+            <a href="{{route('profile.show')}}"><i class="fa fa-cogs"></i><span class="right-nav-text">
+                    {{ trans('main_trans.Profile') }}</span></a>
         </li>
 
     </ul>

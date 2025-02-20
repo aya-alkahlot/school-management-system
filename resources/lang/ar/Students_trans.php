@@ -125,6 +125,7 @@ return [
     'Start_date' => 'تاريخ البداية',
     'Class_time' => 'وقت الحصه',
     'Share_link' => 'رابط الحصه',
+    'Meeting_password'=>'كلمة المرور الاجتماع ',
     'Add_a_new_online_share' => 'اضافه حصص اونلاين جديده',
     'Add_a_new_share' => 'اضافه حصه جديده',
     'Class_duration' => 'مده الحصه بالدقائق',
@@ -152,7 +153,13 @@ return [
     'Delete_invoice'=>'حذف فاتورة',
     'Delete_book'=>'حذف كتاب',
    'Join_now'=>'انضم الان',
-  'Student_Balance' =>'رصيد الطالب '
+  'Student_Balance' =>'رصيد الطالب ',
+  'Reports'=>'التقارير',
+  'Attendance_and_absence_report'=>'تقرير الحضور والغياب',
+ 'Exam_report'=>'تقرير الامتحانات',
+ 'Meeting_number'=>'رقم الاجتماع',
+ 'Link_to_start'=>'لينك البدء ',
+ 'Login_link_for_students'=>'لينك الدخول للطلاب '
 
 
 

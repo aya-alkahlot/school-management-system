@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    قائمة الحضور والغياب للطلاب
+{{ trans( 'Students_trans.Student_attendance_list')}}   
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    قائمة الحضور والغياب للطلاب
+{{ trans( 'Students_trans.Student_attendance_list')}}   
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -33,7 +33,7 @@
         </div>
     @endif
 
-    <h5 style="font-family: 'Cairo', sans-serif;color: red"> تاريخ اليوم : {{ date('Y-m-d') }}</h5>
+    <h5 style="font-family: 'Cairo', sans-serif;color: red"> {{ trans('Students_trans.date') }}: {{ date('Y-m-d') }}</h5>
     <form method="post" action="{{ route('attendance') }}" autocomplete="off">
 
         @csrf
@@ -48,7 +48,7 @@
                 <th class="alert-success">{{ trans('Students_trans.Grade') }}</th>
                 <th class="alert-success">{{ trans('Students_trans.classrooms') }}</th>
                 <th class="alert-success">{{ trans('Students_trans.section') }}</th>
-                <th class="alert-success">الحضور والغياب</th>
+                <th class="alert-success">{{ trans('Students_trans.Presence_and_Absence') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -69,7 +69,7 @@
                                    @endforeach
                                    class="leading-tight" type="radio"
                                    value="presence">
-                            <span class="text-success">حضور</span>
+                            <span class="text-success">{{ trans('Students_trans.presence') }}</span>
                         </label>
 
                         <label class="ml-4 block text-gray-500 font-semibold">
@@ -79,7 +79,7 @@
                                    @endforeach
                                    class="leading-tight" type="radio"
                                    value="absent">
-                            <span class="text-danger">غياب</span>
+                            <span class="text-danger">{{ trans('Students_trans.absence') }}</span>
                         </label>
 
                         <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">

@@ -28,5 +28,7 @@ return [
     'Edit'=>'Edit',
     'Delete'=>'Delete',
     'Close' => 'Close',
+    'Number_of_sections'=>'Number of sections',
+    'Academic_departments'=>'Academic departments'
 
 ];
