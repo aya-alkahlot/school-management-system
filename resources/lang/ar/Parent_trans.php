@@ -41,7 +41,9 @@ return [
     'Attachments' => 'المرفقات',
     'Processes' => 'العمليات',
     'Number_of_parents' => 'عدد اولياء الامور',
-    'Parents'=>'اولياء الامور'
+    'Parents'=>'اولياء الامور',
+    'Children'=>'الابناء',
+    'Financial_report'=>'تقرير المالية'
 
 
 

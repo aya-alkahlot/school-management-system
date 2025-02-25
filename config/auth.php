@@ -51,11 +51,18 @@ return [
             'provider' => 'teacher',
         ],
 
+        
         'parent' => [
             'driver' => 'session',
             'provider' => 'parent',
         ],
 
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
 
     ],
 

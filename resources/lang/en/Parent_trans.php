@@ -36,6 +36,8 @@ return [
     'Attachments' => 'Attachments',
     'Processes' => 'Processes',
     'Number_of_parents' => 'Number of parents',
-    'Parents'=>'Parents'
+    'Parents'=>'Parents',
+    'Children'=>'Children',
+    'Financial_report'=>'Financial report'
 
 ];

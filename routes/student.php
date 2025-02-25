@@ -27,6 +27,7 @@ Route::group(
     //==============================dashboard============================
     Route::get('/student/dashboard', function () {
         return view('pages.Students.dashboard');
+
     });
     Route::group(['prefix' => 'Students\dashboard'], function () {
         Route::get('student_exams', [ExamsController::class, 'index'])->name('student_exams.index');
