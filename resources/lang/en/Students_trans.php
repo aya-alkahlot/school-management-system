@@ -159,5 +159,10 @@ return [
     'Meeting_number'=>'Meeting number',
     'Meeting_password'=>'Meeting password',
     'Link_to_start'=>'Link to start',
-    'Login_link_for_students'=>'Login link for students'
+    'Login_link_for_students'=>'Login link for students',
+    'List_of_test_results'=>'List of test results',
+    'Date_the_test_was_taken'=>'Date the test was taken',
+    'Username_in_Arabic'=>'Username in Arabic',
+    'Username_in_English'=>'Username in English',
+    'View_test_results'=>'View test Results'
 ];

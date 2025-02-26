@@ -29,6 +29,7 @@ return [
     'Delete'=>'Delete',
     'Close' => 'Close',
     'Number_of_sections'=>'Number of sections',
-    'Academic_departments'=>'Academic departments'
+    'Academic_departments'=>'Academic departments',
+    'Search_information'=>'Search information'
 
 ];

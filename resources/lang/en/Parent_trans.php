@@ -38,6 +38,8 @@ return [
     'Number_of_parents' => 'Number of parents',
     'Parents'=>'Parents',
     'Children'=>'Children',
-    'Financial_report'=>'Financial report'
+    'Financial_report'=>'Financial report',
+    'List_of_children'=>'List of children',
+    'Guardian'=>'Guardian'
 
 ];

@@ -22,7 +22,7 @@
         <!-- تقرير الحضور والغياب-->
         <li>
             <a href="{{route('sons.attendances')}}"><i class="fa fa-book"></i><span
-                    class="right-nav-text">{{ trans('Students_trans.Attendance_and_absence_report') }}</span></a>
+                    class="right-nav-text">{{trans('Students_trans.Attendance_and_absence_report') }}</span></a>
         </li>
 
         <!-- تقرير المالية-->

@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
     @section('title')
-    {{trans('main_trans.Settings')}}
+    {{trans('main_trans.Profile')}}
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-    {{trans('main_trans.Settings')}}
+    {{trans('main_trans.Profile')}}
     @stop
     <!-- breadcrumb -->
 @endsection

@@ -43,7 +43,9 @@ return [
     'Number_of_parents' => 'عدد اولياء الامور',
     'Parents'=>'اولياء الامور',
     'Children'=>'الابناء',
-    'Financial_report'=>'تقرير المالية'
+    'Financial_report'=>'تقرير المالية',
+    'List_of_children'=>'قائمة الابناء',
+   'Guardian' =>'ولي امر'
 
 
 
