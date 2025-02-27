@@ -41,7 +41,7 @@
             <div class="page-title" >
                 <div class="row">
                     <div class="col-sm-6" >
-                    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('main_trans.Admin_panel_control_panel')}}</h4>
+                    <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{ trans('main_trans.Welcome') }}: {{auth()->user()->Name}}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
@@ -321,7 +321,7 @@
                 </div>
             </div>
 
-            <livewire:calendar />
+            <!-- <livewire:calendar /> -->
 
             <!--=================================
  wrapper -->
