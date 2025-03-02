@@ -136,7 +136,7 @@ return [
     'e-mail' => 'البريد الالكتروني',
     'School_address' => 'عنوان المدرسه',
     'End_of_first_semester' => 'نهاية الترم الاول',
-    'End_of_second_semester' => 'نهاية الترم الاول',
+    'End_of_second_semester' => 'نهاية الترم الثاني',
     'School_logo' => 'شعار المدرسه',
     'Number_of_students' => 'عدد الطلاب',
     'Students' => 'الطلاب',
@@ -164,7 +164,8 @@ return [
     'Date_the_test_was_taken'=>'تاريخ اجراء الاختبار',
     'Username_in_Arabic'=>'اسم المستخدم باللغة العربية',
     'Username_in_English'=>'اسم المستخدم باللغة الانجليزية   ',
-    'View_test_results'=>'عرض نتائج الاختبارات'
+    'View_test_results'=>'عرض نتائج الاختبارات',
+    'Return_the_student'=>'ارجاع الطالب'
 
 
 

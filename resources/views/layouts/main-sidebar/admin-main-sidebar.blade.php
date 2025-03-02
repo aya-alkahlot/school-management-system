@@ -177,7 +177,7 @@
             </a>
             <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
                 <li> <a href="{{route('Quizzes.index')}}">{{trans('Students_trans.List_of_tests')}}</a> </li>
-                <li> <a href="{{route('questions.index')}}">{{trans('Students_trans.List_of_questions')}}</a> </li>
+                <li> <a href="{{route('Questions.index')}}">{{trans('Students_trans.List_of_questions')}}</a> </li>
             </ul>
         </li>
 

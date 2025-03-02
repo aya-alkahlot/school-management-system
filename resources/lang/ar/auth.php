@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-   'Log_out'=> 'تسجيل الخروج'
-
+    'failed' => 'هذه المؤهلات لا تتطابق مع سجلاتنا',
+    'throttle' => 'حاول تسجيل الدخول كثيرًا.. يرجى محاولة مرة أخرى خلال ثواني',
+    'Log_out' => 'تسجيل الخروج',
 ];

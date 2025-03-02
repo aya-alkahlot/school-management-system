@@ -164,5 +164,6 @@ return [
     'Date_the_test_was_taken'=>'Date the test was taken',
     'Username_in_Arabic'=>'Username in Arabic',
     'Username_in_English'=>'Username in English',
-    'View_test_results'=>'View test Results'
+    'View_test_results'=>'View test Results',
+    'Return_the_student'=>'Return the student'
 ];

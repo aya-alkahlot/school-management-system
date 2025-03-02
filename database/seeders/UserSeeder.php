@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
     {
         User::factory()->count(10)->create();
         DB::table('users')->insert([
-            'name' => 'samir gamal',
-            'email' => 'samir.gamal77@yahoo.com',
-            'password' => Hash::make('p@ssw0rd'),
+            'name' => 'aya yasser',
+            'email' => 'aya@gmail.com',
+            'password' => Hash::make('p123'),
         ]);
     }
 

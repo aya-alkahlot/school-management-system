@@ -120,7 +120,7 @@ Route::group(
             Route::post('/Classrooms/store', [ClassroomController::class, 'store'])->name('Classrooms.store');
             Route::patch('/Classrooms/update', [ClassroomController::class, 'update'])->name('Classrooms.update');
             Route::delete('/Classrooms/destroy', [ClassroomController::class, 'destroy'])->name('Classrooms.destroy');
-            Route::delete('/Classrooms/delete_all', [ClassroomController::class, 'delete_all'])->name('Classrooms.delete_all');
+            Route::post('/Classrooms/delete_all', [ClassroomController::class, 'delete_all'])->name('Classrooms.delete_all');
             Route::post('/Classrooms', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
         });
         //==============================End dashboard page of Classes_Room======================
@@ -292,13 +292,13 @@ Route::group(
 
 
         //==============================Start dashboard page of questions=======================
-        Route::group(['prefix' => 'questions'], function () {
-            Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');
-            Route::get('/questions/create',  [QuestionController::class, 'create'])->name('questions.create');
-            Route::post('/questions/store', [QuestionController::class, 'store'])->name('questions.store');
-            Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('questions.edit');
-            Route::put('/questions/update', [QuestionController::class, 'update'])->name('questions.update');
-            Route::delete('/questions/destroy', [QuestionController::class, 'destroy'])->name('questions.destroy');
+        Route::group(['prefix' => 'Questions'], function () {
+            Route::get('/Questions', [QuestionController::class, 'index'])->name('Questions.index');
+            Route::get('/Questions/create',  [QuestionController::class, 'create'])->name('Questions.create');
+            Route::post('/Questions/store', [QuestionController::class, 'store'])->name('Questions.store');
+            Route::get('/edit/{id}', [QuestionController::class, 'edit'])->name('Questions.edit');
+            Route::put('/Questions/update', [QuestionController::class, 'update'])->name('Questions.update');
+            Route::delete('/Questions/destroy', [QuestionController::class, 'destroy'])->name('Questions.destroy');
         });
         //==============================End dashboard page of questions===========================
 

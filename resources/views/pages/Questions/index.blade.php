@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('questions.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('Questions.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">{{trans('Students_trans.Add_a_new_question')}}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -48,7 +48,7 @@
                                                 <td>{{$question->score}}</td>
                                                 <td>{{$question->quizze->name}}</td>
                                                 <td>
-                                                    <a href="{{route('questions.edit',$question->id)}}"
+                                                    <a href="{{route('Questions.edit',$question->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"

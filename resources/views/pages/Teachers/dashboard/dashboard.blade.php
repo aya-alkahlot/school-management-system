@@ -39,22 +39,15 @@
         <!-- main-content -->
         <div class="content-wrapper">
             <div class="page-title" >
-               <!--================================= Main content =================================-->
-        <!-- main-content -->
-        <div class="content-wrapper">
-            <div class="page-title">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبًا بك :
-                            {{ auth()->user()->name }}</h4>
-                        <br>
-                    </div>
+                    <div class="col-sm-6" >
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{ trans('main_trans.Welcome') }}: {{auth()->user()->Name}}</h4>
+                    </div><br><br>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
                         </ol>
                     </div>
                 </div>
-            </div>
             </div>
             <!-- widgets -->
             <div class="row" >

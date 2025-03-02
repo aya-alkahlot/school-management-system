@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main_trans.list_Graduate')}} <i class="fas fa-user-graduate"></i>
+    {{trans('main_trans.list_Graduate')}} <i class="fa fa-user-graduat"></i>
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -70,4 +70,5 @@
 @section('js')
     @toastr_js
     @toastr_render
+    
 @endsection
