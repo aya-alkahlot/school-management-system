@@ -17,5 +17,8 @@ return [
     'Number_of_teachers'=>'عدد المعلمين',
     'Teachers'=>'المعلمين',
     'Teacher'=>'معلم',
-   'marke'=> 'يجب فصل بعلامه - بين الاسئله'
+   'marke'=> 'يجب فصل بعلامه - بين الاسئله',
+  'No_manipulation'=>'لا يوجد تلاعب',
+  'There_is_manipulation'=>' يوجد تلاعب',
+  're-test'=>'فتح إعادة الاختبار للطالب'
 ];

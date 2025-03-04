@@ -33,7 +33,7 @@
             </a>
             <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
                 <li> <a href="{{route('quizzes.index')}}">{{trans('Students_trans.List_of_tests')}}</a> </li>
-                <li> <a href="#">{{trans('Students_trans.List_of_questions')}}</a> </li>
+                <!-- <li> <a href="#">{{trans('Students_trans.List_of_questions')}}</a> </li> -->
             </ul>
         </li>
 
@@ -60,7 +60,7 @@
             </a>
             <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
                 <li><a href="{{route('attendance.report')}}">{{ trans('Students_trans.Attendance_and_absence_report') }}</a></li>
-                <li><a href="#">{{ trans('Students_trans.Exam_report') }}</a></li>
+                <!-- <li><a href="#">{{ trans('Students_trans.Exam_report') }}</a></li> -->
             </ul>
 
         </li>

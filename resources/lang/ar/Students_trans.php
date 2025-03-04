@@ -161,11 +161,21 @@ return [
     'Link_to_start' => 'لينك البدء ',
     'Login_link_for_students' => 'لينك الدخول للطلاب ',
     'List_of_test_results' => ' قائمة نتائج الاختبارات',
-    'Date_the_test_was_taken'=>'تاريخ اجراء الاختبار',
-    'Username_in_Arabic'=>'اسم المستخدم باللغة العربية',
-    'Username_in_English'=>'اسم المستخدم باللغة الانجليزية   ',
-    'View_test_results'=>'عرض نتائج الاختبارات',
-    'Return_the_student'=>'ارجاع الطالب'
+    'Date_the_test_was_taken' => 'تاريخ اجراء الاختبار',
+    'Username_in_Arabic' => 'اسم المستخدم باللغة العربية',
+    'Username_in_English' => 'اسم المستخدم باللغة الانجليزية   ',
+    'View_test_results' => 'عرض نتائج الاختبارات',
+    'Return_the_student' => 'ارجاع الطالب',
+    'List_of_tested_students' => 'قائمة الطلاب المختبره',
+    'Last_question' => 'اخر سؤال',
+    'manipulation' => 'تلاعب',
+    'Test_date' => 'تاريخ اجراء الاختبار',
+    'Search_information' => 'معلومات البحث',
+    'End_date' => 'تاريخ النهايه',
+    'Study_material'=>'المادة الدراسيه',
+    'Test_score'=>'درجه الاختبار',
+    'Take_a_test'=>'إجراء اختبار',
+    'cancel_graduation?'=>' هل انت متاكد من الغاء عملية التخرج ؟'
 
 
 

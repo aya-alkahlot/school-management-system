@@ -17,6 +17,9 @@ return [
     'Number_of_teachers'=>'Number of teachers',
     'Teachers'=>'Teachers',
     'Teacher'=>'Teacher',
-    'marke'=>'Questions must be separated by a punctuation mark'
+    'marke'=>'Questions must be separated by a punctuation mark',
+    'No_manipulation'=>'No manipulation',
+    'There_is_manipulation'=>'There is manipulation',
+    're-test'=>'Open re-test for student'
 
 ];

@@ -3,6 +3,7 @@
 @section('title')
 {{trans('main_trans.Main_title')}}
 @stop
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,9 +23,9 @@
         <!--=================================
  preloader -->
 
- <div id="pre-loader">
-     <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
- </div>
+        <div id="pre-loader">
+            <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
+        </div>
 
         <!--=================================
  preloader -->
@@ -37,9 +38,9 @@
  Main content -->
         <!-- main-content -->
         <div class="content-wrapper">
-            <div class="page-title" >
+            <div class="page-title">
                 <div class="row">
-                    <div class="col-sm-6" >
+                    <div class="col-sm-6">
                         <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{ trans('main_trans.Welcome') }}: {{auth()->user()->Name_Father}}</h4>
                     </div><br><br>
                     <div class="col-sm-6">
@@ -52,43 +53,45 @@
             <section style="background-color: #eee;">
                 <div class="container py-5">
                     <div class="row justify-content-center">
-                         @foreach($sons as $son)
-                            <div class="col-md-8 col-lg-6 col-xl-4">
-                                <a href="">
-                                    <div class="card text-black">
-                                        <img src="{{URL::asset('assets/images/my_son.png')}}"/>
-                                        <div class="card-body">
-                                            <div class="text-center">
-                                                <h5 style="font-family: 'Cairo', sans-serif"
-                                                    class="card-title">{{$son->name}}</h5>
-                                                <p class="text-muted mb-4">{{ trans('Students_trans.Student_information') }}</p>
-                                            </div>
-                                            <div>
-                                                <div class="d-flex justify-content-between">
-                                                    <span>{{ trans('Students_trans.Grade') }}</span><span>{{$son->grade->Name}}</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <span>{{ trans('Students_trans.classrooms') }}</span><span>{{$son->classroom->Name_Class}}</span>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <span>{{ trans('Students_trans.section') }}</span><span>{{$son->section->Name_Section}}</span>
-                                                </div>
-
-                                                <div class="d-flex justify-content-between">
-                                                </div>
-                                            </div>
+                        @foreach($sons as $son)
+                        <div class="col-md-8 col-lg-6 col-xl-4">
+                            <br><br>
+                            <a href="">
+                                <div class="card text-black">
+                                    <img src="{{URL::asset('assets/images/my_son.png')}}" />
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <h5 style="font-family: 'Cairo', sans-serif"
+                                                class="card-title">{{$son->name}}</h5>
+                                            <p class="text-muted mb-4">{{ trans('Students_trans.Student_information') }}</p>
                                         </div>
+
+                                        <div>
+                                            <div class="d-flex justify-content-between">
+                                                <span>{{ trans('Students_trans.Grade') }}</span><span>{{$son->grade->Name}}</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <span>{{ trans('Students_trans.classrooms') }}</span><span>{{$son->classroom->Name_Class}}</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <span>{{ trans('Students_trans.section') }}</span><span>{{$son->section->Name_Section}}</span>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between">
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                </a>
-                            </div>
+
+                                </div>
+                            </a>
+                        </div>
                         @endforeach
                     </div>
                 </div>
             </section>
-
-
-
-
+            <br>
 
             <!--=================================
  wrapper -->

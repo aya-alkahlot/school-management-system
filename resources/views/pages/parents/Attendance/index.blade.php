@@ -46,9 +46,9 @@
 
                         <div class="card-body datepicker-form">
                             <div class="input-group" data-date-format="yyyy-mm-dd">
-                                <input type="text" class="form-control range-from date-picker-default" placeholder="تاريخ البداية" required name="from">
+                                <input type="text" class="form-control range-from date-picker-default" placeholder="{{ trans('Students_trans.Start_date') }}" required name="from">
                                 <span class="input-group-addon">{{ trans('main_trans.To_date') }}</span>
-                                <input class="form-control range-to date-picker-default" placeholder="تاريخ النهاية" type="text" required name="to">
+                                <input class="form-control range-to date-picker-default" placeholder=" {{ trans('Students_trans.End_date') }}" type="text" required name="to">
                             </div>
                         </div>
 

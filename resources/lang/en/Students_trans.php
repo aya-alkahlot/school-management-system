@@ -165,5 +165,14 @@ return [
     'Username_in_Arabic'=>'Username in Arabic',
     'Username_in_English'=>'Username in English',
     'View_test_results'=>'View test Results',
-    'Return_the_student'=>'Return the student'
+    'Return_the_student'=>'Return the student',
+    'List_of_tested_students'=>'List of tested students',
+    'Last_question'=>'Last question',
+    'manipulation'=>'manipulation',
+    'Test_date'=>'Test date',
+    'End_date'=>'End date',
+    'Study_material'=>'Study material',
+    'Test_score'=>'Test score',
+    'Take_a_test'=>'Take a test',
+    'cancel_graduation?'=>'Are you sure you want to cancel the graduation?'
 ];

@@ -53,7 +53,7 @@
                                                     {{trans('Students_trans.Processes')}}
                                                     </a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="{{route('sons.results',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;{{ trans('Students_trans.View_test_results') }}</a>
+                                                        <a class="dropdown-item" href="{{route('sons.results',$student->id)}}"><i style="color: #ffc107" class="fa fa-eye "></i>&nbsp;{{ trans('Students_trans.View_test_results') }}</a>
                                                     </div>
                                                 </div>
                                             </td>

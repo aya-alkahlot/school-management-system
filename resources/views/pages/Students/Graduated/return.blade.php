@@ -14,7 +14,7 @@
                     @csrf
                     <input type="hidden" name="id" value="{{$student->id}}">
 
-                    <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من الغاء عملية التخرج ؟</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">{{ trans('Students_trans.cancel_graduation?') }}</h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 
                     <div class="modal-footer">

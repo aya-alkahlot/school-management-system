@@ -24,6 +24,7 @@
                                 <a href="{{route('online_zoom_classes.create')}}" class="btn btn-success" role="button" aria-pressed="true">{{trans('Students_trans.Add_a_new_online_share')}}</a>
                                 <a class="btn btn-warning" href="{{route('indirect.teacher.create')}}">{{trans('Students_trans.Add_a_new_online_share')}}</a>
                                 <div class="table-responsive">
+                                    <br>
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
