@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\backend\AjaxController;
 
 /*
 |--------------------------------------------------------------------------

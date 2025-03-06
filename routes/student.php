@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Students\dashboard\ExamsController;
+use App\Http\Controllers\backend\Students\dashboard\ExamsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 

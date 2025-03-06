@@ -2,12 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Teachers\dashboard\QuizzController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Http\Controllers\Teachers\dashboard\ProfileController;
-use App\Http\Controllers\Teachers\dashboard\StudentController;
-use App\Http\Controllers\Teachers\dashboard\QuestionController;
-use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
+use App\Http\Controllers\backend\Teachers\dashboard\QuizzController;
+use App\Http\Controllers\backend\Teachers\dashboard\ProfileController;
+use App\Http\Controllers\backend\Teachers\dashboard\StudentController;
+use App\Http\Controllers\backend\Teachers\dashboard\QuestionController;
+use App\Http\Controllers\backend\Teachers\dashboard\OnlineZoomClassesController;
 
 Route::group(
     [

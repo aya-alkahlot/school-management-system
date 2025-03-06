@@ -2,27 +2,28 @@
 
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Grades\GradeController;
-use App\Http\Controllers\Quizzes\QuizzController;
-use App\Http\Controllers\Students\FeesController;
-use App\Http\Controllers\Sections\SectionController;
-use App\Http\Controllers\Students\LibraryController;
-use App\Http\Controllers\Students\PaymentController;
-use App\Http\Controllers\Students\StudentController;
-use App\Http\Controllers\Subjects\SubjectController;
-use App\Http\Controllers\Teachers\TeacherController;
-use App\Http\Controllers\questions\QuestionController;
-use App\Http\Controllers\Students\GraduatedController;
-use App\Http\Controllers\Students\PromotionController;
-use App\Http\Controllers\Students\AttendanceController;
-use App\Http\Controllers\Classrooms\ClassroomController;
-use App\Http\Controllers\Students\FeesInvoicesController;
-use App\Http\Controllers\Students\OnlineClasseController;
-use App\Http\Controllers\Students\ProcessingFeeController;
-use App\Http\Controllers\Students\ReceiptStudentController;
+use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\Auth\LoginController;
+use App\Http\Controllers\backend\Grades\GradeController;
+use App\Http\Controllers\backend\Quizzes\QuizzController;
+use App\Http\Controllers\backend\Students\FeesController;
+use App\Http\Controllers\backend\Sections\SectionController;
+use App\Http\Controllers\backend\Students\LibraryController;
+use App\Http\Controllers\backend\Students\PaymentController;
+use App\Http\Controllers\backend\Students\StudentController;
+use App\Http\Controllers\backend\Subjects\SubjectController;
+use App\Http\Controllers\backend\Teachers\TeacherController;
+use App\Http\Controllers\backend\Questions\QuestionController;
+use App\Http\Controllers\backend\Students\GraduatedController;
+use App\Http\Controllers\backend\Students\PromotionController;
+use App\Http\Controllers\backend\Students\AttendanceController;
+use App\Http\Controllers\backend\Classrooms\ClassroomController;
+use App\Http\Controllers\backend\Students\FeesInvoicesController;
+use App\Http\Controllers\backend\Students\OnlineClasseController;
+use App\Http\Controllers\backend\Students\ProcessingFeeController;
+use App\Http\Controllers\backend\Students\ReceiptStudentController;
+
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------------------------------------------------

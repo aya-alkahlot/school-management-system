@@ -3,9 +3,8 @@
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Students\dashboard\ExamsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use App\Http\Controllers\Parents\dashboard\ChildrenController;
+use App\Http\Controllers\backend\Parents\dashboard\ChildrenController;
 
 /*
 |--------------------------------------------------------------------------
