@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\Students\dashboard\ExamsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\backend\Students\dashboard\ExamsController;
+use App\Http\Controllers\backend\Students\dashboard\RegistrationController;
 
 
 /*
@@ -35,6 +36,14 @@ Route::group(
 
     });
 
+        //============================== عرض المواد الدراسية ============================
+        Route::get('/student/dashboard/subjects', [RegistrationController::class, 'index'])->name('student.subjects.index');
+        Route::get('/auto-register-student/{id}', [RegistrationController::class, 'autoRegisterStudent']);
+        
+        // Route::group(['prefix' => 'profile'], function () {
+        //     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+        //     Route::post('profile-student/{id}', [ProfileController::class, 'update'])->name('profile-student.update');
+        // });
 
 });
 

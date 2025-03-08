@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Subject extends Model
 {
+    use HasFactory;
     use HasTranslations;
 
     public $translatable = ['name'];
 
-    protected $fillable = ['name','grade_id','classroom_id','teacher_id'];
+    protected $fillable = ['name', 'grade_id', 'classroom_id', 'teacher_id'];
 
 
     // جلب اسم المراحل الدراسية
@@ -28,11 +29,16 @@ class Subject extends Model
         return $this->belongsTo('App\Models\Classroom', 'classroom_id');
     }
 
-    // جلب اسم المعلم
+    // علاقة المادة بالمعلم المسؤول عنها
     public function teacher()
     {
-        return $this->belongsTo('App\Models\Teacher', 'teacher_id');
+        return $this->belongsTo(Teacher::class, 'teacher_id');
     }
 
-
+    // علاقة المادة مع الطلاب عبر `registrations`
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'registrations', 'subject_id', 'student_id')
+            ->withPivot('teacher_id');
+    }
 }

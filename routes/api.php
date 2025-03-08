@@ -2,6 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
+use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
+use App\Http\Controllers\backend\Api\Question\ApiQuestionController;
+use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +23,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// ***************************************Start Routes for Classroom API ************************************
+Route::apiResource('classrooms', ApiClassroomController::class);
+Route::delete('classrooms/{id}', [ApiClassroomController::class, 'destroy']);
+Route::delete('classrooms/delete-all', [ApiClassroomController::class, 'delete_all']);
+Route::get('/classrooms/filter', [ApiClassroomController::class, 'Filter_Classes']);
+// ***************************************End Routes for Classroom API **************************************
+
+
+// ***************************************Start Routes for Grades API ************************************
+Route::apiResource('/grades', ApiGradeController::class);
+Route::delete('/grades/{id}', [ApiGradeController::class, 'destroy']);
+// ***************************************End Routes for Grades API **************************************
+
+
+// ***************************************Start Routes for Question API ************************************
+Route::apiResource('/questions', ApiQuestionController::class);
+Route::delete('/questions/{id}', [ApiQuestionController::class, 'destroy']);
+// ***************************************End Routes for Question API **************************************
+
+// ***************************************Start Routes for Quizz API ************************************
+Route::apiResource('/quizzes', ApiQuizzController::class);
+Route::delete('/quizzes/{id}', [ApiQuizzController::class, 'destroy']);
+// ***************************************End Routes for Quizz API **************************************

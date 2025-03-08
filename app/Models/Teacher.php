@@ -11,7 +11,7 @@ class Teacher extends Authenticatable
 {
     use HasTranslations;
     public $translatable = ['Name'];
-    protected $guarded=[];
+    protected $guarded = [];
 
     // علاقة بين المعلمين والتخصصات لجلب اسم التخصص
     public function specializations()
@@ -25,11 +25,22 @@ class Teacher extends Authenticatable
         return $this->belongsTo('App\Models\Gender', 'Gender_id');
     }
 
-// علاقة المعلمين مع الاقسام
+    // علاقة المعلمين مع الاقسام
     public function Sections()
     {
-        return $this->belongsToMany('App\Models\Section','teacher_section');
+        return $this->belongsToMany('App\Models\Section', 'teacher_section');
     }
 
+    // علاقة المعلمين مع الطلاب عبر `registrations`
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'registrations', 'teacher_id', 'student_id')
+            ->withPivot('subject_id');
+    }
 
+    // علاقة المعلمين مع المواد الدراسية
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'teacher_id');
+    }
 }

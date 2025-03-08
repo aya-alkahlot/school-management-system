@@ -30,10 +30,6 @@ class QuestionController extends Controller
         return $this->Question->store($request);
     }
 
-    public function show($id)
-    {
-        //
-    }
 
     public function edit($id)
     {
