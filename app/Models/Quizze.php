@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Quizze extends Model
 {
     use HasTranslations;
+    protected $fillable = [
+        'name',
+        'subject_id',
+        'grade_id',
+        'classroom_id',
+        'section_id',
+        'teacher_id'
+    ];
     public $translatable = ['name'];
 
     public function teacher()
