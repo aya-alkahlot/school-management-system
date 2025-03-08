@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
 use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
+use App\Http\Controllers\backend\Api\Sections\ApiSectionController;
 use App\Http\Controllers\backend\Api\Question\ApiQuestionController;
 use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
 
@@ -48,3 +49,8 @@ Route::delete('/questions/{id}', [ApiQuestionController::class, 'destroy']);
 Route::apiResource('/quizzes', ApiQuizzController::class);
 Route::delete('/quizzes/{id}', [ApiQuizzController::class, 'destroy']);
 // ***************************************End Routes for Quizz API **************************************
+
+
+Route::apiResource('/sections', ApiSectionController::class);
+Route::get('/sections/classrooms/{id}', [ApiSectionController::class, 'getClassrooms']);
+Route::delete('/sections/{id}', [ApiSectionController::class, 'destroy']);
