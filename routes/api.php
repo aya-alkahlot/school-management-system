@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
 use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
 use App\Http\Controllers\backend\Api\Sections\ApiSectionController;
+use App\Http\Controllers\backend\Api\Subjects\ApiSubjectController;
 use App\Http\Controllers\backend\Api\Question\ApiQuestionController;
 use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
 
@@ -50,7 +51,13 @@ Route::apiResource('/quizzes', ApiQuizzController::class);
 Route::delete('/quizzes/{id}', [ApiQuizzController::class, 'destroy']);
 // ***************************************End Routes for Quizz API **************************************
 
-
+// ***************************************Start Routes for sections API ************************************
 Route::apiResource('/sections', ApiSectionController::class);
 Route::get('/sections/classrooms/{id}', [ApiSectionController::class, 'getClassrooms']);
 Route::delete('/sections/{id}', [ApiSectionController::class, 'destroy']);
+// ***************************************End Routes for sections API **************************************
+
+// ***************************************Start Routes for subjects API ************************************
+Route::apiResource('/subjects', ApiSubjectController::class);
+Route::delete('/subjects/{id}', [ApiSubjectController::class, 'destroy']);
+// ***************************************End Routes for subjects API **************************************
