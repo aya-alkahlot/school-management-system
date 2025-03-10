@@ -6,8 +6,10 @@ use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
 use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
 use App\Http\Controllers\backend\Api\Sections\ApiSectionController;
 use App\Http\Controllers\backend\Api\Subjects\ApiSubjectController;
+use App\Http\Controllers\backend\Api\Teachers\ApiTeacherController;
 use App\Http\Controllers\backend\Api\Question\ApiQuestionController;
 use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
+use App\Http\Controllers\backend\Api\Students\ApiAttendanceController;
 
 
 
@@ -61,3 +63,15 @@ Route::delete('/sections/{id}', [ApiSectionController::class, 'destroy']);
 Route::apiResource('/subjects', ApiSubjectController::class);
 Route::delete('/subjects/{id}', [ApiSubjectController::class, 'destroy']);
 // ***************************************End Routes for subjects API **************************************
+
+
+// ***************************************Start Routes for Students API ************************************
+Route::apiResource('/attendance', ApiAttendanceController::class);
+// ***************************************End Routes for Students API **************************************
+
+
+
+// ***************************************Start Routes for Students API ************************************
+Route::apiResource('/teachers', ApiTeacherController::class);
+Route::delete('/teachers/delete_all', [ApiTeacherController::class, 'delete_all']);
+// ***************************************End Routes for Students API **************************************
