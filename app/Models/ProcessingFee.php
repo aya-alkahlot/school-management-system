@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProcessingFee extends Model
 {
+    protected $fillable = [
+        'date',
+        'student_id',
+        'amount',
+        'description'
+    ];
     public function student()
     {
         return $this->belongsTo('App\Models\Student', 'student_id');

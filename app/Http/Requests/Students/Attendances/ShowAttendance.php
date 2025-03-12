@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Students\Attendance;
+namespace App\Http\Requests\Students\Attendances;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteAttendance extends FormRequest
+class ShowAttendance extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,10 @@ class DeleteAttendance extends FormRequest
         return true;
     }
 
-    public function rules()
+    /**
+     * Get the validation rules that apply to the request.
+     */
+    public function rules(): array
     {
         return [
             'id' => 'required|exists:attendances,id',
@@ -24,8 +27,8 @@ class DeleteAttendance extends FormRequest
     public function messages()
     {
         return [
-            'id.required' => 'يجب تحديد معرف سجل الحضور.',
-            'id.exists' => 'سجل الحضور المحدد غير موجود.',
+            'id.required' => 'يجب تحديد سجل الحضور.',
+            'id.exists' => 'سجل الحضور غير موجود.',
         ];
     }
 }

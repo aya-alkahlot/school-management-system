@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class promotions extends Model
 {
-    protected $guarded=[];
-
+    protected $fillable = [
+        'student_id',
+        'from_grade',
+        'from_Classroom',
+        'from_section',
+        'to_grade',
+        'to_Classroom',
+        'to_section',
+        'academic_year',
+        'academic_year_new',
+    ];
+  
     public function student()
     {
         return $this->belongsTo('App\Models\Student', 'student_id');
