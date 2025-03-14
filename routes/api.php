@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\Api\Auth\ApiLoginController;
 use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
 use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
+use App\Http\Controllers\backend\Api\Auth\ApiRegisterController;
 use App\Http\Controllers\backend\Api\Sections\ApiSectionController;
 use App\Http\Controllers\backend\Api\Subjects\ApiSubjectController;
 use App\Http\Controllers\backend\Api\Teachers\ApiTeacherController;
@@ -13,7 +15,9 @@ use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
 use App\Http\Controllers\backend\Api\Students\Payments\ApiPaymentController;
 use App\Http\Controllers\backend\Api\Students\Libraries\ApiLibraryController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\ApiStudentController;
+use App\Http\Controllers\backend\Api\Students\dashboard\StudentAuthController;
 use App\Http\Controllers\backend\Api\Students\Graduates\ApiGraduatedController;
+use App\Http\Controllers\backend\Api\Students\dashboard\Exams\ApiExamController;
 use App\Http\Controllers\backend\Api\Students\Promotions\ApiPromotionController;
 use App\Http\Controllers\backend\Api\Students\Attendances\ApiAttendanceController;
 use App\Http\Controllers\backend\Api\Students\FeesInvoices\ApiFeesInvoicesController;
@@ -147,33 +151,48 @@ Route::prefix('fees-invoices')->group(function () {
 
 // *************************************** Start Routes for Graduates API [Student Dashboard] ************************************
 Route::prefix('graduates')->group(function () {
-    // عرض جميع الطلاب الخريجين (المحذوفين بشكل مؤقت)
     Route::get('/', [ApiGraduatedController::class, 'index']);
-    // عرض بيانات المراحل الدراسية (لإنشاء خريجين)
     Route::get('/create', [ApiGraduatedController::class, 'create']);
-    // حذف الطلاب بشكل مؤقت (Soft Delete)
     Route::post('/soft-delete', [ApiGraduatedController::class, 'SoftDelete']);
-    // استعادة طالب محذوف
     Route::post('/restore', [ApiGraduatedController::class, 'ReturnData']);
-    // حذف طالب بشكل نهائي (Force Delete)
     Route::delete('/destroy', [ApiGraduatedController::class, 'destroy']);
 });
 // *************************************** End Routes for Graduates API [Student Dashboard] **************************************
 
 
 Route::prefix('library')->group(function () {
-    Route::get('/', [ApiLibraryController::class, 'index']); // عرض جميع الكتب
-    Route::post('/store', [ApiLibraryController::class, 'store']); // إضافة كتاب جديد
-    Route::get('/{id}', [ApiLibraryController::class, 'show']); // عرض كتاب معين
-    Route::post('/update/{id}', [ApiLibraryController::class, 'update']); // تحديث كتاب
-    Route::delete('/delete/{id}', [ApiLibraryController::class, 'destroy']); // حذف كتاب
+    Route::get('/', [ApiLibraryController::class, 'index']); 
+    Route::post('/store', [ApiLibraryController::class, 'store']);
+    Route::get('/{id}', [ApiLibraryController::class, 'show']); 
+    Route::post('/update/{id}', [ApiLibraryController::class, 'update']); 
+    Route::delete('/delete/{id}', [ApiLibraryController::class, 'destroy']); 
 });
 
 
 Route::prefix('receipt-students')->group(function () {
-    Route::get('/', [ApiReceiptStudentController::class, 'index']); // عرض جميع سندات القبض
-    Route::get('/{id}', [ApiReceiptStudentController::class, 'show']); // عرض سند قبض محدد
-    Route::post('/store', [ApiReceiptStudentController::class, 'store']); // إنشاء سند قبض جديد
-    Route::put('/{id}', [ApiReceiptStudentController::class, 'update']); // تحديث سند قبض
-    Route::delete('/{id}', [ApiReceiptStudentController::class, 'destroy']); // حذف سند قبض
+    Route::get('/', [ApiReceiptStudentController::class, 'index']); 
+    Route::get('/{id}', [ApiReceiptStudentController::class, 'show']);
+    Route::post('/store', [ApiReceiptStudentController::class, 'store']); 
+        Route::put('/{id}', [ApiReceiptStudentController::class, 'update']);
+    Route::delete('/{id}', [ApiReceiptStudentController::class, 'destroy']); 
+});
+
+// تسجيل الدخول
+Route::post('/login', [ApiLoginController::class, 'login']);
+// تسجيل الخروج
+Route::post('/logout', [ApiLoginController::class, 'logout'])->middleware('auth:sanctum');
+// تسجيل مستخدم جديد
+Route::post('/register', [ApiRegisterController::class, 'register']);
+
+
+Route::post('/student/login', [StudentAuthController::class, 'login']);
+Route::post('/student/logout', [StudentAuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::middleware('auth:sanctum')->group(function () {
+    Route::prefix('students/dashboard/exams')->group(function () {
+        Route::get('/', [ApiExamController::class, 'index'])->name('exams.index');
+        Route::get('/{quizze_id}', [ApiExamController::class, 'show'])->name('exams.show');
+        Route::post('/', [ApiExamController::class, 'store'])->name('exams.store');
+        Route::put('/{quizze_id}', [ApiExamController::class, 'update'])->name('exams.update');
+        Route::delete('/{quizze_id}', [ApiExamController::class, 'destroy'])->name('exams.destroy');
+    });
 });
