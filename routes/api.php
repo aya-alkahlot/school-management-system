@@ -16,6 +16,7 @@ use App\Http\Controllers\backend\Api\Students\Payments\ApiPaymentController;
 use App\Http\Controllers\backend\Api\Students\Libraries\ApiLibraryController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\ApiStudentController;
 use App\Http\Controllers\backend\Api\Students\dashboard\StudentAuthController;
+use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherAuthController;
 use App\Http\Controllers\backend\Api\Students\Graduates\ApiGraduatedController;
 use App\Http\Controllers\backend\Api\Students\dashboard\Exams\ApiExamController;
 use App\Http\Controllers\backend\Api\Students\Promotions\ApiPromotionController;
@@ -195,4 +196,20 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/{quizze_id}', [ApiExamController::class, 'update'])->name('exams.update');
         Route::delete('/{quizze_id}', [ApiExamController::class, 'destroy'])->name('exams.destroy');
     });
+});
+
+
+
+Route::post('/teacher/login', [TeacherAuthController::class, 'login']);
+Route::post('/teacher/logout', [TeacherAuthController::class, 'logout'])->middleware('auth:sanctum');
+
+
+
+Route::middleware('auth:sanctum')->prefix('teacher')->group(function () {
+    // جلب قائمة الطلاب الذين يدرسهم المعلم
+    Route::get('/students', [ApiStudentController::class, 'index']);
+    Route::get('/sections', [ApiStudentController::class, 'sections']);         // ✅ جلب الأقسام
+    Route::post('/attendance', [ApiStudentController::class, 'attendance']);    // ✅ تسجيل الحضور
+    Route::get('/attendance-report', [ApiStudentController::class, 'attendanceReport']); // ✅ تقرير الحضور
+    Route::post('/attendance-search', [ApiStudentController::class, 'attendanceSearch']); // ✅ البحث عن الحضور
 });

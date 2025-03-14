@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\Api\Teachers\dashboard;
 
 use Exception;
+use App\Models\Section;
 use App\Models\Student;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
@@ -24,75 +25,25 @@ class ApiStudentController extends Controller
         ]);
     }
 
-    public function store(StoreStudent $request)
+    // ✅ قائمة الأقسام الخاصة بالمعلم
+    public function sections()
     {
-        try {
-            $validated = $request->validated();
-            $student = Student::create($validated);
-            return response()->json([
-                'status_code' => 200,
-                'status_message' => 'Student created successfully | تم إنشاء الطالب بنجاح',
-                'data' => $student,
-            ]);
-        } catch (Exception $e) {
-            return response()->json([
-                'status_code' => 500,
-                'status_message' => 'Error creating student | حدث خطأ أثناء إنشاء الطالب',
-                'error' => $e->getMessage(),
-            ]);
-        }
+        $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
+        $sections = Section::whereIn('id', $ids)->get();
+
+        return response()->json([
+            'status_code' => 200,
+            'status_message' => 'List of sections | قائمة الأقسام',
+            'data' => $sections,
+        ]);
     }
 
-    public function update(UpdateStudent $request, $id)
-    {
-        try {
-            $student = Student::findOrFail($id);
-            $student->update($request->validated());
-            return response()->json([
-                'status_code' => 200,
-                'status_message' => 'Student updated successfully | تم تحديث بيانات الطالب بنجاح',
-                'data' => $student,
-            ]);
-        } catch (Exception $e) {
-            return response()->json([
-                'status_code' => 500,
-                'status_message' => 'Error updating student | حدث خطأ أثناء تحديث بيانات الطالب',
-                'error' => $e->getMessage(),
-            ]);
-        }
-    }
-
-    public function destroy($id)
-    {
-        try {
-            $student = Student::find($id);
-            if (!$student) {
-                return response()->json([
-                    'status_code' => 404,
-                    'status_message' => 'Student not found | لم يتم العثور على الطالب',
-                ]);
-            }
-
-            $student->delete();
-
-            return response()->json([
-                'status_code' => 200,
-                'status_message' => 'Student deleted successfully | تم حذف الطالب بنجاح',
-                'data' => $student,
-            ]);
-        } catch (Exception $e) {
-            return response()->json([
-                'status_code' => 500,
-                'status_message' => 'Error deleting student | حدث خطأ أثناء حذف الطالب',
-                'error' => $e->getMessage(),
-            ]);
-        }
-    }
-
+    // ✅ تسجيل الحضور
     public function attendance(Request $request)
     {
         try {
             $attenddate = date('Y-m-d');
+
             foreach ($request->attendences as $studentid => $attendence) {
                 $attendence_status = $attendence == 'presence';
 
@@ -112,6 +63,7 @@ class ApiStudentController extends Controller
                     ]
                 );
             }
+
             return response()->json([
                 'status_code' => 200,
                 'status_message' => 'Attendance recorded successfully | تم تسجيل الحضور بنجاح',
@@ -125,14 +77,46 @@ class ApiStudentController extends Controller
         }
     }
 
+    // ✅ تقرير الحضور
     public function attendanceReport()
     {
         $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
         $students = Student::whereIn('section_id', $ids)->get();
+
         return response()->json([
             'status_code' => 200,
             'status_message' => 'Attendance report | تقرير الحضور',
             'data' => $students,
+        ]);
+    }
+
+    // ✅ البحث في الحضور بين تاريخين
+    public function attendanceSearch(Request $request)
+    {
+        $request->validate([
+            'from'  => 'required|date|date_format:Y-m-d',
+            'to' => 'required|date|date_format:Y-m-d|after_or_equal:from'
+        ], [
+            'to.after_or_equal' => 'تاريخ النهاية لابد أن يكون أكبر من أو يساوي تاريخ البداية',
+            'from.date_format' => 'صيغة التاريخ يجب أن تكون yyyy-mm-dd',
+            'to.date_format' => 'صيغة التاريخ يجب أن تكون yyyy-mm-dd',
+        ]);
+
+        $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
+        $students = Student::whereIn('section_id', $ids)->get();
+
+        $query = Attendance::whereBetween('attendence_date', [$request->from, $request->to]);
+
+        if ($request->student_id != 0) {
+            $query->where('student_id', $request->student_id);
+        }
+
+        $Students = $query->get();
+
+        return response()->json([
+            'status_code' => 200,
+            'status_message' => 'Filtered Attendance Report | تقرير الحضور بناءً على البحث',
+            'data' => $Students,
         ]);
     }
 }
