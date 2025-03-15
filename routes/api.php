@@ -15,13 +15,16 @@ use App\Http\Controllers\backend\Api\Classroms\ApiClassroomController;
 use App\Http\Controllers\backend\Api\Students\Payments\ApiPaymentController;
 use App\Http\Controllers\backend\Api\Students\Libraries\ApiLibraryController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\ApiStudentController;
+use App\Http\Controllers\backend\Api\Teachers\dashboard\ProfileApiController;
 use App\Http\Controllers\backend\Api\Students\dashboard\StudentAuthController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherAuthController;
 use App\Http\Controllers\backend\Api\Students\Graduates\ApiGraduatedController;
 use App\Http\Controllers\backend\Api\Students\dashboard\Exams\ApiExamController;
 use App\Http\Controllers\backend\Api\Students\Promotions\ApiPromotionController;
 use App\Http\Controllers\backend\Api\Students\Attendances\ApiAttendanceController;
+use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherApiQuizzController;
 use App\Http\Controllers\backend\Api\Students\FeesInvoices\ApiFeesInvoicesController;
+use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherApiQuestionController;
 use App\Http\Controllers\backend\Api\Students\OnlineClasses\ApiOnlineClasseController;
 use App\Http\Controllers\backend\Api\Students\ProcessingFees\ApiProcessingFeeController;
 use App\Http\Controllers\backend\Api\Students\ReceiptStudents\ApiReceiptStudentController;
@@ -212,4 +215,34 @@ Route::middleware('auth:sanctum')->prefix('teacher')->group(function () {
     Route::post('/attendance', [ApiStudentController::class, 'attendance']);    // ✅ تسجيل الحضور
     Route::get('/attendance-report', [ApiStudentController::class, 'attendanceReport']); // ✅ تقرير الحضور
     Route::post('/attendance-search', [ApiStudentController::class, 'attendanceSearch']); // ✅ البحث عن الحضور
+});
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/quizzes', [TeacherApiQuizzController::class, 'index']); // جلب جميع الاختبارات
+    Route::post('/quizzes', [TeacherApiQuizzController::class, 'store']); // إنشاء اختبار جديد
+    Route::get('/quizze/{id}', [TeacherApiQuizzController::class, 'show']);
+    Route::put('/quizzes/update/{id}', [TeacherApiQuizzController::class, 'update']); // تحديث اختبار
+    Route::delete('/quizzes/{id}', [TeacherApiQuizzController::class, 'destroy']); // حذف اختبار
+    // جلب الطلاب الذين قاموا بحل الاختبار
+    Route::get('/quizzes/{quizze_id}/students', [TeacherApiQuizzController::class, 'student_quizze']);
+    // إعادة فتح الاختبار للطالب
+    Route::post('/quizzes/repeat', [TeacherApiQuizzController::class, 'repeat_quizze']);
+});
+
+
+
+Route::middleware(['auth:sanctum'])->prefix('questions')->group(function () {
+    Route::get('/', [TeacherApiQuestionController::class, 'index']); // جلب جميع الأسئلة
+    Route::post('/', [TeacherApiQuestionController::class, 'store']); // إنشاء سؤال جديد
+    Route::get('/show/{id}', [TeacherApiQuestionController::class, 'show']); // جلب تفاصيل سؤال معين
+    Route::put('/update/{id}', [TeacherApiQuestionController::class, 'update']); // تحديث سؤال معين
+    Route::delete('/delete/{id}', [TeacherApiQuestionController::class, 'destroy']); // حذف سؤال معين
+});
+
+
+
+Route::middleware(['auth:sanctum'])->prefix('profile')->group(function () {
+    Route::get('/', [ProfileApiController::class, 'index']);  // جلب المعلومات الشخصية
+    Route::put('/', [ProfileApiController::class, 'update']); // تحديث المعلومات الشخصية
 });
