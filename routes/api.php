@@ -6,6 +6,8 @@ use App\Http\Controllers\backend\Api\Auth\ApiLoginController;
 use App\Http\Controllers\backend\Api\Quizz\ApiQuizzController;
 use App\Http\Controllers\backend\Api\Grades\ApiGradeController;
 use App\Http\Controllers\backend\Api\Auth\ApiRegisterController;
+use App\Http\Controllers\backend\Api\parent\ParentAuthController;
+use App\Http\Controllers\backend\Api\parent\ApiChildrenController;
 use App\Http\Controllers\backend\Api\Sections\ApiSectionController;
 use App\Http\Controllers\backend\Api\Subjects\ApiSubjectController;
 use App\Http\Controllers\backend\Api\Teachers\ApiTeacherController;
@@ -18,6 +20,7 @@ use App\Http\Controllers\backend\Api\Teachers\dashboard\ApiStudentController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\ProfileApiController;
 use App\Http\Controllers\backend\Api\Students\dashboard\StudentAuthController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherAuthController;
+use App\Http\Controllers\backend\Api\Students\AddStudents\StudentApiController;
 use App\Http\Controllers\backend\Api\Students\Graduates\ApiGraduatedController;
 use App\Http\Controllers\backend\Api\Students\dashboard\Exams\ApiExamController;
 use App\Http\Controllers\backend\Api\Students\Promotions\ApiPromotionController;
@@ -25,9 +28,11 @@ use App\Http\Controllers\backend\Api\Students\Attendances\ApiAttendanceControlle
 use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherApiQuizzController;
 use App\Http\Controllers\backend\Api\Students\FeesInvoices\ApiFeesInvoicesController;
 use App\Http\Controllers\backend\Api\Teachers\dashboard\TeacherApiQuestionController;
+use App\Http\Controllers\backend\Api\Students\dashboard\Profiles\ApiProfileController;
 use App\Http\Controllers\backend\Api\Students\OnlineClasses\ApiOnlineClasseController;
 use App\Http\Controllers\backend\Api\Students\ProcessingFees\ApiProcessingFeeController;
 use App\Http\Controllers\backend\Api\Students\ReceiptStudents\ApiReceiptStudentController;
+use App\Http\Controllers\backend\Api\Students\dashboard\StudentRegistrations\ApiStudentRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -191,6 +196,7 @@ Route::post('/register', [ApiRegisterController::class, 'register']);
 
 Route::post('/student/login', [StudentAuthController::class, 'login']);
 Route::post('/student/logout', [StudentAuthController::class, 'logout'])->middleware('auth:sanctum');
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('students/dashboard/exams')->group(function () {
         Route::get('/', [ApiExamController::class, 'index'])->name('exams.index');
@@ -241,8 +247,51 @@ Route::middleware(['auth:sanctum'])->prefix('questions')->group(function () {
 });
 
 
-
+// *************************************** Start Routes for Profile Teacher Dashboard  ************************************
 Route::middleware(['auth:sanctum'])->prefix('profile')->group(function () {
     Route::get('/', [ProfileApiController::class, 'index']);  // جلب المعلومات الشخصية
     Route::put('/', [ProfileApiController::class, 'update']); // تحديث المعلومات الشخصية
+});// *************************************** end Routes for Profile Teacher Dashboard  ************************************
+
+
+
+// *************************************** Start Routes for Profile Student Dashboard  ************************************
+Route::prefix('students/profile')->group(function () {
+    Route::get('/{id}', [ApiProfileController::class, 'show']);
+    Route::put('update/{id}', [ApiProfileController::class, 'update']);
 });
+// *************************************** End Routes for Profile Student Dashboard **************************************
+
+
+
+// *************************************** Start Routes for Student Dashboard Registrations API ************************************
+Route::middleware('auth:sanctum')->group(function () {
+    Route::prefix('students/dashboard/registrations')->group(function () {
+        Route::get('/', [ApiStudentRegistrationController::class, 'index'])->name('registrations.index');
+        Route::get('/{id}', [ApiStudentRegistrationController::class, 'show'])->name('registrations.show');
+        Route::post('/store', [ApiStudentRegistrationController::class, 'store'])->name('registrations.store');
+        Route::put('/update/{id}', [ApiStudentRegistrationController::class, 'update'])->name('registrations.update');
+        Route::delete('/delete/{id}', [ApiStudentRegistrationController::class, 'destroy'])->name('registrations.destroy');
+        });
+});
+// *************************************** End Routes for Student Dashboard Registrations API ************************************
+
+
+Route::prefix('students')->group( function () {
+    Route::get('/', [StudentApiController::class, 'index']); // جلب جميع الطلاب
+    Route::get('/{id}', [StudentApiController::class, 'show']); // عرض تفاصيل طالب معين
+    Route::post('/store', [StudentApiController::class, 'store']); // إنشاء طالب جديد
+    Route::put('/{id}', [StudentApiController::class, 'update']); // تحديث بيانات طالب
+    Route::delete('/{id}', [StudentApiController::class, 'destroy']); // حذف طالب
+});
+
+
+Route::prefix('parent')->group(function () {
+    Route::post('/login', [ParentAuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->post('logout', [ParentAuthController::class, 'logout']);
+});
+
+Route::middleware('auth:sanctum')->get('/parents/children', [ApiChildrenController::class, 'index']);
+
+
+  
