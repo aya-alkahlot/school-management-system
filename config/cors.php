@@ -15,20 +15,20 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'], // السماح بالوصول إلى الـ API
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['*'], // السماح بكل أنواع الطلبات (GET, POST, PUT, DELETE, ...)
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['http://localhost:3000', 'http://127.0.0.1:8000'], // ضع هنا الـ Frontend الخاص بك
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['*'], // السماح بكل الهيدرز
 
     'exposed_headers' => [],
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true, // مهم إذا كنت تستخدم المصادقة مثل Laravel Sanctum
 
 ];

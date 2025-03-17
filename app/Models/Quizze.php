@@ -48,4 +48,8 @@ class Quizze extends Model
     {
         return $this->belongsTo('App\Models\Section', 'section_id');
     }
+    public function degree()
+    {
+        return $this->hasMany('App\Models\Degree');
+    }
 }

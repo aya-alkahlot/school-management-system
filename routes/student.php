@@ -30,6 +30,9 @@ Route::group(
         return view('pages.Students.dashboard');
 
     });
+    Route::group(['namespace' => 'App\Http\Controllers\backend\Students\dashboard'], function () {
+        Route::resource('student_exams', ExamsController::class);
+    });
     Route::group(['prefix' => 'Students\dashboard'], function () {
         Route::get('student_exams', [ExamsController::class, 'index'])->name('student_exams.index');
         Route::get('/student_exams/show/{id}', [ExamsController::class, 'show'])->name('student_exams.show');

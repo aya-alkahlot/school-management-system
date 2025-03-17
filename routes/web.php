@@ -38,6 +38,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 //
 
 // Auth::routes();
+Livewire::setUpdateRoute(fn ($handle) =>
+     Route::post('/'.LaravelLocalization::setLocale().'/livewire/update' ,$handle));
 
 Route::get('/',  [HomeController::class, 'index'])->name('selection');
 // Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
@@ -48,6 +50,7 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/logout/{type}',  [LoginController::class, 'logout'])->name('logout');
 });
+
 //==============================Translate all pages============================
 Route::group(
     [
@@ -142,9 +145,7 @@ Route::group(
         //==============================Start dashboard page of parent===========================
         Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
 
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/en/livewire/update', $handle);
-        });
+       
         //==============================End dashboard page of parent==============================
 
 
@@ -339,7 +340,6 @@ Route::group(
             Route::delete('/library/destroy', [LibraryController::class, 'destroy'])->name('library.destroy');
         });
         //==============================End dashboard page of library===========================
-
-
+       
     }
 );

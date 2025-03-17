@@ -53,7 +53,7 @@
                                                     data-toggle="modal"
                                                     data-target="#repeat_quizze{{ $degree->quizze_id }}"
                                                     title="إعادة">
-                                                    <i class="fas fa-repeat"></i></button>
+                                                    <i class="fa fa-repeat"></i></button>
                                             </td>
                                         </tr>
 

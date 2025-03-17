@@ -47,7 +47,6 @@
                             <br>
 
                             <div class="form-row">
-
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Grade_id"> {{trans('Students_trans.subject')}} : <span class="text-danger">*</span></label>
@@ -59,11 +58,9 @@
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="form-row">
-
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Grade_id">{{trans('Students_trans.Grade')}} : <span class="text-danger">*</span></label>
