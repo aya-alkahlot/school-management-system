@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\Students;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Models\online_classe;
+use Jubaer\Zoom\Facades\Zoom;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
 
@@ -85,47 +86,30 @@ class OnlineClasseController extends Controller
     }
 
 
-
-    public function show($id)
-    {
-  
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
+ 
 
     public function destroy(Request $request)
     {
-    //     try {
+        try {
 
-    //         $info = online_classe::find($request->id);
+            $info = online_classe::find($request->id);
 
-    //         if($info->integration == true){
-    //             $meeting = Zoom::meeting()->find($request->meeting_id);
-    //             $meeting->delete();
-    //            // online_classe::where('meeting_id', $request->id)->delete();
-    //             online_classe::destroy($request->id);
-    //         }
-    //         else{
-    //            // online_classe::where('meeting_id', $request->id)->delete();
-    //             online_classe::destroy($request->id);
-    //         }
+            if($info->integration == true){
+                $meeting = Zoom::meeting()->find($request->meeting_id);
+                $meeting->delete();
+               // online_classe::where('meeting_id', $request->id)->delete();
+                online_classe::destroy($request->id);
+            }
+            else{
+               // online_classe::where('meeting_id', $request->id)->delete();
+                online_classe::destroy($request->id);
+            }
 
-    //         toastr()->success(trans('messages.Delete'));
-    //         return redirect()->route('online_classes.index');
-    //     } catch (\Exception $e) {
-    //         return redirect()->back()->with(['error' => $e->getMessage()]);
-    //     }
+            toastr()->success(trans('messages.Delete'));
+            return redirect()->route('online_classes.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
 
     }
 }
