@@ -1,7 +1,12 @@
 <?php
+<<<<<<< HEAD
 
 namespace Tests\Feature\Http\Controllers\Grade;
 
+=======
+namespace Tests\Feature\Http\Controllers\Grade;
+ 
+>>>>>>> acb911e (student dashboard)
 use App\Models\Grade;
 use Database\Factories\GradeFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -34,7 +39,11 @@ use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 class GradeControllerTest extends TestCase
 {
     use RefreshDatabase;
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> acb911e (student dashboard)
 
     /** @test */
     public function it_displays_the_grades_list_page()

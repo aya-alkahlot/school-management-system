@@ -3,13 +3,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    المواد الدراسية الخاصة بك
+{{ trans('Students_trans.Your_study_materials') }}
 @stop
 @endsection
 
 @section('page-header')
 @section('PageTitle')
-    المواد الدراسية الخاصة بك
+{{ trans('Students_trans.Your_study_materials') }}
 @stop
 @endsection
 
@@ -24,8 +24,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>المادة الدراسية</th>
-                                <th>المعلم</th>
+                                <th>{{ trans('Students_trans.Study_material') }}</th>
+                                <th>{{ trans('Teacher_trans.Name_Teacher') }}</th>
                             </tr>
                         </thead>
                         <tbody>

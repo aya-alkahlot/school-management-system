@@ -1,25 +1,20 @@
 <?php
 
 namespace App\Repository;
-
 use App\Models\Question;
 use App\Models\Quizze;
-
 class QuestionRepository implements QuestionRepositoryInterface
 {
-
     public function index()
     {
         $questions = Question::get();
         return view('pages.Questions.index', compact('questions'));
     }
-
     public function create()
     {
         $quizzes = Quizze::get();
         return view('pages.Questions.create',compact('quizzes'));
     }
-
     public function store($request)
     {
         try {
@@ -36,14 +31,12 @@ class QuestionRepository implements QuestionRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
     public function edit($id)
     {
         $question = Question::findorfail($id);
         $quizzes = Quizze::get();
         return view('pages.Questions.edit',compact('question','quizzes'));
     }
-
     public function update($request)
     {
         try {
@@ -60,7 +53,6 @@ class QuestionRepository implements QuestionRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
     public function destroy($request)
     {
         try {

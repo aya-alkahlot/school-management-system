@@ -1,30 +1,21 @@
 <?php
-
-
 namespace App\Repository;
-
-
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Teacher;
-
 class SubjectRepository implements SubjectRepositoryInterface
 {
-
     public function index()
     {
         $subjects = Subject::get();
         return view('pages.Subjects.index',compact('subjects'));
     }
-
     public function create()
     {
         $grades = Grade::get();
         $teachers = Teacher::get();
         return view('pages.Subjects.create',compact('grades','teachers'));
     }
-
-
     public function store($request)
     {
         try {
@@ -41,18 +32,13 @@ class SubjectRepository implements SubjectRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
-
     public function edit($id){
-
         $subject =Subject::findorfail($id);
         $grades = Grade::get();
         $teachers = Teacher::get();
         return view('pages.Subjects.edit',compact('subject','grades','teachers'));
-
     }
-
-    public function update($request)
+        public function update($request)
     {
         try {
             $subjects =  Subject::findorfail($request->id);
@@ -68,7 +54,6 @@ class SubjectRepository implements SubjectRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
     public function destroy($request)
     {
         try {
@@ -76,7 +61,6 @@ class SubjectRepository implements SubjectRepositoryInterface
             toastr()->error(trans('messages.Delete'));
             return redirect()->back();
         }
-
         catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

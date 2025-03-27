@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\backend\Students;
-
 use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Models\online_classe;
 use Jubaer\Zoom\Facades\Zoom;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
-
 class OnlineClasseController extends Controller
 {
     use MeetingZoomTrait;
@@ -17,25 +15,19 @@ class OnlineClasseController extends Controller
         $online_classes = online_classe::where('created_by',auth()->user()->email)->get();
         return view('pages.online_classes.index', compact('online_classes'));
     }
-
-
     public function create()
     {
         $Grades = Grade::all();
         return view('pages.online_classes.add', compact('Grades'));
     }
-
     public function indirectCreate()
     {
         $Grades = Grade::all();
         return view('pages.online_classes.indirect', compact('Grades'));
     }
-
-
     public function store(Request $request)
     {
         try {
-
             $meeting = $this->createMeeting($request);
             online_classe::create([
                 'integration' => true,
@@ -58,8 +50,6 @@ class OnlineClasseController extends Controller
         }
 
     }
-
-
     public function storeIndirect(Request $request)
     {
         try {
@@ -82,34 +72,22 @@ class OnlineClasseController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
-
     }
-
-
- 
-
     public function destroy(Request $request)
     {
         try {
-
             $info = online_classe::find($request->id);
 
-            if($info->integration == true){
-                $meeting = Zoom::meeting()->find($request->meeting_id);
-                $meeting->delete();
-               // online_classe::where('meeting_id', $request->id)->delete();
-                online_classe::destroy($request->id);
+            if ($info->integration == true) {
+                $this->deleteMeeting($request->meeting_id);
             }
-            else{
-               // online_classe::where('meeting_id', $request->id)->delete();
-                online_classe::destroy($request->id);
-            }
+
+            online_classe::destroy($request->id);
 
             toastr()->success(trans('messages.Delete'));
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
-
     }
 }

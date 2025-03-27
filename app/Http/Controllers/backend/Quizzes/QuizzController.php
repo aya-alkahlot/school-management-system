@@ -8,31 +8,23 @@ use App\Repository\QuizzRepositoryInterface;
 
 class QuizzController extends Controller
 {
-   
     protected $Quizz;
-
     public function __construct(QuizzRepositoryInterface $Quizz)
     {
         $this->Quizz =$Quizz;
     }
-
     public function index()
     {
         return $this->Quizz->index();
     }
-
     public function create()
     {
         return $this->Quizz->create();
     }
-
-
     public function store(Request $request)
     {
         return $this->Quizz->store($request);
     }
-
-
     public function edit($id)
     {
         return $this->Quizz->edit($id);

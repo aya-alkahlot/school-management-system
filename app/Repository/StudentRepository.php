@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repository;
 use App\Models\Classroom;
 use App\Models\Gender;
@@ -13,11 +12,7 @@ use App\Models\Type_Blood;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-
-
 class StudentRepository implements StudentRepositoryInterface{
-
-
     public function Get_Student()
     {
         $students = Student::all();

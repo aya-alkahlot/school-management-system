@@ -20,24 +20,21 @@ class ExamsController extends Controller
         return view('pages.Students.dashboard.exams.index', compact('quizzes'));
     }
 
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
     public function show($quizze_id)
     {
         $student_id = Auth::user()->id;
         return view('pages.Students.dashboard.exams.show',compact('quizze_id','student_id'));
     }
+
+    public function create()
+    {
+        //
+    }
+    public function store(Request $request)
+    {
+        //
+    }
+
 
 
     public function edit($id)

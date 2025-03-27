@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\backend\Classrooms;
-
 use Illuminate\Http\Request;
 use App\Models\Grade;
 use App\Models\Classroom;
@@ -10,25 +9,14 @@ use App\Http\Requests\StoreClassroom;
 
 class ClassroomController extends Controller
 {
-
-
   public function index()
   {
     $My_Classes = Classroom::all();
     $Grades = Grade::all();
     return view('pages.My_Classes.My_Classes', compact('My_Classes', 'Grades'));
   }
-
-
   public function store(StoreClassroom $request)
   {
-    //   $this->validate($request,[
-    //   'Name'=>'required',
-    //   'Nmae_class_en'=>'required'
-    //  ],[
-    //   'Name.required'=>trans('validation.required'),
-    //   'Name_class_en.required'=>trans('validation.required'),
-    //  ]);
     $List_Classes = $request->List_Classes;
     try {
       $validated = $request->validated();
@@ -44,9 +32,6 @@ class ClassroomController extends Controller
       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
   }
-
-
-
   public function update(Request $request)
   {
     try {
@@ -64,15 +49,12 @@ class ClassroomController extends Controller
       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
   }
-
-
   public function destroy(Request $request)
   {
     $Classrooms = Classroom::findOrFail($request->id)->delete();
     toastr()->error(trans('messages.Delete'));
     return redirect()->route('Classrooms.index');
   }
-
   public function delete_all(Request $request)
   {
     $delete_all_id = explode(",", $request->delete_all_id);
@@ -81,8 +63,6 @@ class ClassroomController extends Controller
     toastr()->error(trans('messages.Delete'));
     return redirect()->route('Classrooms.index');
   }
-
-
   public function Filter_Classes(Request $request)
   {
     $Grades = Grade::all();

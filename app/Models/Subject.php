@@ -41,4 +41,17 @@ class Subject extends Model
         return $this->belongsToMany(Student::class, 'registrations', 'subject_id', 'student_id')
             ->withPivot('teacher_id');
     }
+
+    // علاقة الطالب بالمواد الدراسية
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'registrations', 'student_id', 'subject_id')
+            ->withPivot('teacher_id');
+    }
+
+    // علاقة المادة مع الحصص الأونلاين
+    public function onlineClasses()
+    {
+        return $this->hasMany(online_classe::class, 'subject_id');
+    }
 }

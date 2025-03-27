@@ -174,5 +174,11 @@ return [
     'Study_material'=>'Study material',
     'Test_score'=>'Test score',
     'Take_a_test'=>'Take a test',
-    'cancel_graduation?'=>'Are you sure you want to cancel the graduation?'
+    'cancel_graduation?'=>'Are you sure you want to cancel the graduation?',
+    'Online_classe'=>'Online classes',
+    'List_of_school_books'=>'List of school books',
+    'Downloaded_books'=>'Downloaded books',
+    'Your_study_materials'=>'Your study materials',
+    'Subject_List' => 'Subject List',
+
 ];

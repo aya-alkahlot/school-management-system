@@ -14,22 +14,17 @@ use App\Http\Controllers\Controller;
 
 class QuizzController extends Controller
 {
-    
     public function index()
     {
-        $quizzes = Quizze::where('teacher_id',auth()->user()->id)->get();
+        $quizzes = Quizze::where('teacher_id', auth()->user()->id)->get();
         return view('pages.Teachers.dashboard.Quizzes.index', compact('quizzes'));
     }
-
-
     public function create()
     {
         $data['grades'] = Grade::all();
-        $data['subjects'] = Subject::where('teacher_id',auth()->user()->id)->get();
+        $data['subjects'] = Subject::where('teacher_id', auth()->user()->id)->get();
         return view('pages.Teachers.dashboard.Quizzes.create', $data);
     }
-
-
     public function store(Request $request)
     {
         try {
@@ -43,29 +38,21 @@ class QuizzController extends Controller
             $quizzes->save();
             toastr()->success(trans('messages.success'));
             return redirect()->route('quizzes.create');
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
-
-
-    public function edit($id)
-    {
+    public function edit($id) {
         $quizz = Quizze::findorFail($id);
         $data['grades'] = Grade::all();
-        $data['subjects'] = Subject::where('teacher_id',auth()->user()->id)->get();
+        $data['subjects'] = Subject::where('teacher_id', auth()->user()->id)->get();
         return view('pages.Teachers.dashboard.Quizzes.edit', $data, compact('quizz'));
     }
-    public function show($id)
-    {
-        $questions = Question::where('quizze_id',$id)->get();
+    public function show($id) {
+        $questions = Question::where('quizze_id', $id)->get();
         $quizz = Quizze::findorFail($id);
-        return view('pages.Teachers.dashboard.Questions.index',compact('questions','quizz'));
+        return view('pages.Teachers.dashboard.Questions.index', compact('questions', 'quizz'));
     }
-
-
     public function update(Request $request)
     {
         try {
@@ -83,8 +70,6 @@ class QuizzController extends Controller
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
-
     public function destroy($id)
     {
         try {
@@ -95,15 +80,13 @@ class QuizzController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
     public function getClassrooms($id)
     {
         $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
         return $list_classes;
     }
-
-    //Get Sections
-    public function Get_Sections($id){
+    public function Get_Sections($id)
+    {
 
         $list_sections = Section::where("Class_id", $id)->pluck("Name_Section", "id");
         return $list_sections;
@@ -113,7 +96,6 @@ class QuizzController extends Controller
         $degrees = Degree::where('quizze_id', $quizze_id)->get();
         return view('pages.Teachers.dashboard.Quizzes.student_quizze', compact('degrees'));
     }
-
     public function repeat_quizze(Request $request)
     {
         Degree::where('student_id', $request->student_id)->where('quizze_id', $request->quizze_id)->delete();

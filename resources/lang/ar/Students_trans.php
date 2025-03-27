@@ -175,9 +175,12 @@ return [
     'Study_material'=>'المادة الدراسيه',
     'Test_score'=>'درجه الاختبار',
     'Take_a_test'=>'إجراء اختبار',
-    'cancel_graduation?'=>' هل انت متاكد من الغاء عملية التخرج ؟'
-
-
+    'cancel_graduation?'=>' هل انت متاكد من الغاء عملية التخرج ؟',
+    'Online_classe'=>'الحصص الاونلاين',
+    'List_of_school_books'=>'قائمة الكتب المدرسية',
+    'Downloaded_books'=>'الكتب المحملة',
+    'Your_study_materials'=>'المواد الدراسية الخاصة بك',
+    'Subject_List' => 'قائمة المواد الدراسية',
 
 
 

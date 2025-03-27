@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Library extends Model
 {
   
+    use HasFactory;
+
     protected $table="library";
 
     public function grade()
     {
         return $this->belongsTo('App\Models\Grade', 'Grade_id');
     }
-
 
     public function classroom()
     {
@@ -31,5 +32,9 @@ class Library extends Model
         return $this->belongsTo('App\Models\Teacher', 'teacher_id');
     }
 
+    public function subject()
+    {
+        return $this->belongsTo('App\Models\Subject', 'subject_id');
+    }
 
 }

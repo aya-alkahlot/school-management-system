@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\backend\Students\dashboard\ExamsController;
+use App\Http\Controllers\backend\Students\dashboard\LibraryController;
+use App\Http\Controllers\backend\Students\dashboard\ProfileController;
 use App\Http\Controllers\backend\Students\dashboard\RegistrationController;
+use App\Http\Controllers\backend\Students\dashboard\OnlineZoomClassesController;
 
 
 /*
@@ -43,10 +46,25 @@ Route::group(
         Route::get('/student/dashboard/subjects', [RegistrationController::class, 'index'])->name('student.subjects.index');
         Route::get('/auto-register-student/{id}', [RegistrationController::class, 'autoRegisterStudent']);
         
-        // Route::group(['prefix' => 'profile'], function () {
-        //     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
-        //     Route::post('profile-student/{id}', [ProfileController::class, 'update'])->name('profile-student.update');
-        // });
+        Route::group(['prefix' => 'profile'], function () {
+            Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+            Route::post('profile-student/{id}', [ProfileController::class, 'update'])->name('profile-student.update');
+        });
+
+        Route::prefix('student')->group(function () {
+            Route::get('/library', [LibraryController::class, 'index'])->name('student.library.index');
+            Route::get('/library/downloaded', [LibraryController::class, 'downloaded'])->name('student.library.downloaded');
+            Route::get('/library/search', [LibraryController::class, 'search'])->name('student.library.search');
+        });
+
+
+         //============================== عرض الحصص الاونلاين ============================
+         Route::prefix('student')->middleware(['auth:student'])->group(function () {
+            Route::get('/online-classes', [OnlineZoomClassesController::class, 'index'])
+                 ->name('student.online_classes.index');
+        });
+
+
 
 });
 

@@ -9,13 +9,11 @@ use App\Models\Teacher;
 
 class QuizzRepository implements QuizzRepositoryInterface
 {
-
     public function index()
     {
         $quizzes = Quizze::get();
         return view('pages.Quizzes.index', compact('quizzes'));
     }
-
     public function create()
     {
         $data['grades'] = Grade::all();
@@ -23,11 +21,9 @@ class QuizzRepository implements QuizzRepositoryInterface
         $data['teachers'] = Teacher::all();
         return view('pages.Quizzes.create', $data);
     }
-
     public function store($request)
     {
         try {
-
             $quizzes = new Quizze();
             $quizzes->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $quizzes->subject_id = $request->subject_id;
@@ -43,7 +39,6 @@ class QuizzRepository implements QuizzRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
     public function edit($id)
     {
         $quizz = Quizze::findorFail($id);
@@ -52,7 +47,6 @@ class QuizzRepository implements QuizzRepositoryInterface
         $data['teachers'] = Teacher::all();
         return view('pages.Quizzes.edit', $data, compact('quizz'));
     }
-
     public function update($request)
     {
         try {
@@ -70,7 +64,6 @@ class QuizzRepository implements QuizzRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
-
     public function destroy($request)
     {
         try {

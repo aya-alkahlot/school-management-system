@@ -8,11 +8,8 @@ use App\Models\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreGrades;
 use App\Http\Controllers\Controller;
-
-
 class GradeController extends Controller
 {
-   
     public function index()
     {
         $Grades = Grade::paginate(10);
@@ -64,18 +61,19 @@ class GradeController extends Controller
         }
     }
 
-   
+
+
+
     public function destroy(Request $request)
     {
         $MyClass_id = Classroom::where('Grade_id', $request->id)->pluck('Grade_id');
-        if($MyClass_id->count() == 0){
+        if ($MyClass_id->count() == 0) {
             $Grades = Grade::findOrFail($request->id)->delete();
             toastr()->error(trans('messages.Delete'));
             return redirect()->route('Grades.index');
-        }else{
+        } else {
             toastr()->error(trans('Grades_trans.delete_Grade_Error'));
             return redirect()->route('Grades.index');
         }
-      
     }
 }

@@ -7,7 +7,6 @@ use App\Models\online_classe;
 use Jubaer\Zoom\Facades\Zoom;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
-
 class OnlineZoomClassesController extends Controller
 {
     use MeetingZoomTrait;
@@ -16,28 +15,20 @@ class OnlineZoomClassesController extends Controller
         $online_classes = online_classe::where('created_by',auth()->user()->email)->get();
         return view('pages.Teachers.dashboard.online_classes.index', compact('online_classes'));
     }
-
-
     public function create()
     {
         $Grades = Grade::all();
         return view('pages.Teachers.dashboard.online_classes.add', compact('Grades'));
     }
-
     public function indirectCreate()
     {
         $Grades = Grade::all();
         return view('pages.Teachers.dashboard.online_classes.indirect', compact('Grades'));
     }
-
-
-
     public function store(Request $request)
     {
         try {
-
             $meeting = $this->createMeeting($request);
-
             online_classe::create([
                 'integration' => true,
                 'Grade_id' => $request->Grade_id,
@@ -58,7 +49,6 @@ class OnlineZoomClassesController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
     public function storeIndirect(Request $request)
     {
         try {
@@ -83,24 +73,18 @@ class OnlineZoomClassesController extends Controller
         }
 
     }
-
-
     public function destroy(Request $request,$id)
     {
         try {
-
             $info = online_classe::find($id);
-
             if($info->integration == true){
                 $meeting = Zoom::meeting()->find($request->meeting_id);
                 $meeting->delete();
                 online_classe::destroy($id);
             }
             else{
-
                 online_classe::destroy($id);
             }
-
             toastr()->success(trans('messages.Delete'));
             return redirect()->route('online_zoom_classes.index');
         } catch (\Exception $e) {

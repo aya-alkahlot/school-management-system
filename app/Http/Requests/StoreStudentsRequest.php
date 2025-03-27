@@ -26,7 +26,7 @@ class StoreStudentsRequest extends FormRequest
             'name_en' => 'required',
             'email' => 'required|email|unique:students,email,'.$this->id,
             'password' => 'required|string|min:6|max:10',
-            'gender_id' => 'required',
+            'gender_id' => 'required|exists:genders,id', // Ensure the gender_id exists in the genders table
             'nationalitie_id' => 'required',
             'blood_id' => 'required',
             'Date_Birth' => 'required|date|date_format:Y-m-d',

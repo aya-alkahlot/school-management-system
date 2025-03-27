@@ -26,18 +26,65 @@
             </ul>
         </li>
 
-        <!-- الامتحانات-->
-        <li>
-            <a href="{{route('student_exams.index')}}"><i class="fa fa-book"></i><span
-                    class="right-nav-text">الامتحانات</span></a>
+          <!-- الحصص الأونلاين -->
+          <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#online-classes-icon">
+                <div class="pull-left"><i class="fas fa-video"></i><span
+                        class="right-nav-text">{{ trans('Students_trans.Online_class') }}</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div>
+                <div class="clearfix"></div>
+            </a>
+            <ul id="online-classes-icon" class="collapse" data-parent="#sidebarnav">
+                <li>
+                    <a
+                        href="{{ route('student.online_classes.index') }}">{{ trans('Students_trans.Online_Classes_List') }}</a>
+                </li>
+            </ul>
         </li>
 
 
-        <!-- Settings-->
+        <!-- المكتبة -->
         <li>
-            <a href="{{route('settings.index')}}"><i class="fa fa-id-card"></i><span
-                    class="right-nav-text">الملف الشخصي</span></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#library-menu">
+                <div class="pull-left">
+                    <i class="fa fa-book"></i>
+                    <span class="right-nav-text">{{ trans('main_trans.library') }}</span>
+                </div>
+                <div class="pull-right">
+                    <i class="ti-plus"></i>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+            <ul id="library-menu" class="collapse" data-parent="#sidebarnav">
+                <!-- قائمة الكتب المدرسية -->
+                <li>
+                    <a href="{{ route('student.library.index') }}">
+                        <i class="fa fa-book"></i>
+                        <span class="right-nav-text">{{ trans('Students_trans.List_of_school_books') }}</span>
+                    </a>
+                </li>
+
+                <!-- الكتب المحملة -->
+                <li>
+                    <a href="{{ route('student.library.downloaded') }}">
+                        <i class="fa fa-download"></i>
+                        <span class="right-nav-text">{{ trans('Students_trans.Downloaded_books') }}</span>
+                    </a>
+                </li>
+
+    
+            </ul>
+                 <!-- الامتحانات-->
+                 <li>
+                    <a href="{{route('student_exams.index')}}"><i class="fa fa-book"></i><span
+                            class="right-nav-text">{{ trans('Students_trans.Tests') }}</span></a>
+                </li>
+
+
+            <!-- Settings-->
+        <li>
+            <a href="{{ route('profile.index') }}"><i class="fa fa-id-card"></i><span class="right-nav-text">{{ trans('main_trans.Profile') }}
+                    </span></a>
         </li>
 
-    </ul>
 </div>

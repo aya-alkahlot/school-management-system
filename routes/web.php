@@ -332,12 +332,7 @@ Route::group(
         //==============================Start dashboard page of library==========================
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
-            Route::get('/library/create',  [LibraryController::class, 'create'])->name('library.create');
-            Route::post('/library/store', [LibraryController::class, 'store'])->name('library.store');
-            Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('library.edit');
             Route::put('/settings/update', [SettingController::class, 'update'])->name('settings.update');
-            Route::get('library/downloadAttachment/{file}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
-            Route::delete('/library/destroy', [LibraryController::class, 'destroy'])->name('library.destroy');
         });
         //==============================End dashboard page of library===========================
        
