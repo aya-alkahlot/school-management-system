@@ -21,21 +21,35 @@ class LibraryController extends Controller
 
             // جلب المواد الدراسية الخاصة بالطالب
             $subjects = $student->subjects;
+         //   dd($subjects);
 
             // جلب الكتب الدراسية المرتبطة بالمواد الدراسية
             $books = [];
             foreach ($subjects as $subject) {
-                $subjectBooks = Library::where('subject_id', $subject->id)
+/*
+                $subjectBooks = Library::where('subject_id', $subject->id)//no subject_id colum in library table
                     ->where('grade_id', $student->Grade_id)
                     ->where('classroom_id', $student->Classroom_id)
                     ->where('section_id', $student->section_id)
                     ->orderBy('id', 'DESC')
                     ->get();
+
+
+*/
+                $subjectBooks = Library::where('grade_id', $student->Grade_id)
+                    ->where('classroom_id', $student->Classroom_id)
+                    ->where('section_id', $student->section_id)
+                    ->orderBy('id', 'DESC')
+                    ->get();
+
+                  //  dd($subjectBooks);
+
                 foreach ($subjectBooks as $book) {
                     $book->subject_name = $subject->getTranslation('name', 'ar'); // إضافة اسم المادة بالعربية
                     $books[] = $book;
                 }
             }
+          //  dd($books);
 
             // عرض الصفحة مع البيانات
             return view('pages.Students.dashboard.library.index', compact('books'));
