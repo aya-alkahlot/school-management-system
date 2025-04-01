@@ -45,17 +45,8 @@
                                                 <td>{{ $book->subject_name }}</td>
                                                 <td>{{ $book->file_name }}</td>
                                                 <td>
-                                                    @php
-                                                    /*
-                                                    please define student.library.download on your student routes
 
-                                                    <a href="{{ route('student.library.download', $book->file_name) }}" class="btn btn-primary btn-sm">
-                                                        <i class="fas fa-download"></i> {{ trans('Students_trans.Download') }}
-                                                    </a>
-                                                    */
-                                                   @endphp
-
-                                                    <a href="{{ route('downloadAttachment', $book->file_name) }}" class="btn btn-primary btn-sm">
+                                                    <a href="{{ route('downloadAttachmentStudent', $book->file_name) }}" class="btn btn-primary btn-sm">
                                                         <i class="fas fa-download"></i> {{ trans('Students_trans.Download') }}
                                                     </a>
 
