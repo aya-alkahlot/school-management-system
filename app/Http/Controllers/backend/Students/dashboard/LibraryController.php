@@ -121,4 +121,9 @@ class LibraryController extends Controller
             return redirect()->back()->with('error', 'حدث خطأ أثناء البحث: ' . $e->getMessage());
         }
     }
+
+    public function downloadAttachmentStudent($filename)
+    {
+        return response()->download(public_path('attachments/library/'.$filename));
+    }
 }
