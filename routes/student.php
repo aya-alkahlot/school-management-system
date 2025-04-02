@@ -45,7 +45,7 @@ Route::group(
         //============================== عرض المواد الدراسية ============================
         Route::get('/student/dashboard/subjects', [RegistrationController::class, 'index'])->name('student.subjects.index');
         Route::get('/auto-register-student/{id}', [RegistrationController::class, 'autoRegisterStudent']);
-        
+
         Route::group(['prefix' => 'profile'], function () {
             Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
             Route::post('profile-student/{id}', [ProfileController::class, 'update'])->name('profile-student.update');
@@ -54,6 +54,7 @@ Route::group(
         Route::prefix('student')->group(function () {
             Route::get('/library', [LibraryController::class, 'index'])->name('student.library.index');
             Route::get('/library/downloaded', [LibraryController::class, 'downloaded'])->name('student.library.downloaded');
+            Route::get('library/downloadAttachmentStudent/{file}', [LibraryController::class, 'downloadAttachmentStudent'])->name('downloadAttachmentStudent');
             Route::get('/library/search', [LibraryController::class, 'search'])->name('student.library.search');
         });
 
