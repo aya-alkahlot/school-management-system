@@ -49,9 +49,17 @@ class Subject extends Model
             ->withPivot('teacher_id');
     }
 
+    /*
     // علاقة المادة مع الحصص الأونلاين
+    public function onlineClasses()
+    {
+        return $this->belongsToMany(online_classe::class, 'subject_id');
+    }
+        */
+
     public function onlineClasses()
     {
         return $this->hasMany(online_classe::class, 'subject_id');
     }
+
 }
