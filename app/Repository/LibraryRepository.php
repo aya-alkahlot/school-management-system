@@ -20,6 +20,7 @@ class LibraryRepository implements LibraryRepositoryInterface
     }
     public function store($request)
     {
+        //dd($request);
         try {
             $books = new Library();
             $books->title = $request->title;
