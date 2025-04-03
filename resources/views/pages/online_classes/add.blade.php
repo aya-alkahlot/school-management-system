@@ -47,6 +47,19 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label for="Subject_id">{{ trans('Students_trans.Subject') }} : <span
+                                        class="text-danger">*</span></label>
+                                <select class="custom-select mr-sm-2" name="Subject_id">
+                                    <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
+                                    @foreach ($Subjects as $Subject)
+                                        <option value="{{ $Subject->id }}">{{ $Subject->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="Classroom_id">{{ trans('Students_trans.classrooms') }} : <span
                                         class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="Classroom_id">

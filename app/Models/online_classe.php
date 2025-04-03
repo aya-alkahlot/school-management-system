@@ -33,8 +33,11 @@ class online_classe extends Model
         return $this->belongsTo(Section::class, 'section_id');
     }
 
-    public function subjects()
-    {
-        return $this->belongsToMany(Subject::class, 'subject_online_class_pivot');
-    }
+   
+
+        public function subjects()
+        {
+            return $this->belongsToMany(Subject::class, 'subject_online_class_pivot');
+        }
+
 }

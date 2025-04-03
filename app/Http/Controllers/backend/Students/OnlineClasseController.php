@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend\Students;
 use App\Models\Grade;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\online_classe;
 use Jubaer\Zoom\Facades\Zoom;
@@ -18,7 +19,9 @@ class OnlineClasseController extends Controller
     public function create()
     {
         $Grades = Grade::all();
-        return view('pages.online_classes.add', compact('Grades'));
+        $Subjects=Subject::all();
+      //  dd($Subjects);
+        return view( 'pages.online_classes.add', compact('Grades','Subjects'));
     }
     public function indirectCreate()
     {
@@ -26,10 +29,12 @@ class OnlineClasseController extends Controller
         return view('pages.online_classes.indirect', compact('Grades'));
     }
     public function store(Request $request)
+
     {
+        //dd($request->all());
         try {
             $meeting = $this->createMeeting($request);
-            online_classe::create([
+          $onlineClass=  online_classe::create([
                 'integration' => true,
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
@@ -43,6 +48,9 @@ class OnlineClasseController extends Controller
                 'start_url' => $meeting->start_url,
                 'join_url' => $meeting->join_url,
             ]);
+            // Attach the subject to the online class in the pivot table
+           $onlineClass->subjects()->attach($request->Subject_id);
+           
             toastr()->success(trans('messages.success'));
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
