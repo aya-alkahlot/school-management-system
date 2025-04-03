@@ -181,7 +181,7 @@ return [
     'Downloaded_books'=>'الكتب المحملة',
     'Your_study_materials'=>'المواد الدراسية الخاصة بك',
     'Subject_List' => 'قائمة المواد الدراسية',
-
+    'Online_classe_list'=>'قائمه الحصص الاونلاين'
 
 
 

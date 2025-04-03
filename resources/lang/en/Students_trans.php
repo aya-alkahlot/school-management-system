@@ -180,5 +180,6 @@ return [
     'Downloaded_books'=>'Downloaded books',
     'Your_study_materials'=>'Your study materials',
     'Subject_List' => 'Subject List',
+    'Online_classe_list'=>'Online classe list'
 
 ];

@@ -31,7 +31,7 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th></th>
+                                            <th>{{ trans('Students_trans.Books_name') }}</th>
                                             <th>{{ trans('Students_trans.Name_of_material') }}</th>
                                             <th>{{ trans('Students_trans.filename') }}</th>
                                             <th>{{ trans('Students_trans.Processes') }}</th>

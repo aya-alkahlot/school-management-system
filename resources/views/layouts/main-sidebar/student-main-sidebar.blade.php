@@ -26,10 +26,10 @@
             </ul>
         </li>
 
-          <!-- الحصص الأونلاين -->
-          <li>
+        <!-- الحصص الأونلاين -->
+        <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#online-classes-icon">
-                <div class="pull-left"><i class="fas fa-video"></i><span
+                <div class="pull-left"><i class="fa fa-laptop"></i><span
                         class="right-nav-text">{{ trans('Students_trans.Online_class') }}</span></div>
                 <div class="pull-right"><i class="ti-plus"></i></div>
                 <div class="clearfix"></div>
@@ -37,7 +37,7 @@
             <ul id="online-classes-icon" class="collapse" data-parent="#sidebarnav">
                 <li>
                     <a
-                        href="{{ route('student.online_classes.index') }}">{{ trans('Students_trans.Online_Classes_List') }}</a>
+                        href="{{ route('student.online_classes.index') }}">{{ trans('Students_trans.Online_classe_list') }}</a>
                 </li>
             </ul>
         </li>
@@ -64,27 +64,19 @@
                     </a>
                 </li>
 
-                <!-- الكتب المحملة -->
-                <li>
-                    <a href="{{ route('student.library.downloaded') }}">
-                        <i class="fa fa-download"></i>
-                        <span class="right-nav-text">{{ trans('Students_trans.Downloaded_books') }}</span>
-                    </a>
-                </li>
 
-    
             </ul>
-                 <!-- الامتحانات-->
-                 <li>
-                    <a href="{{route('student_exams.index')}}"><i class="fa fa-book"></i><span
-                            class="right-nav-text">{{ trans('Students_trans.Tests') }}</span></a>
-                </li>
+            <!-- الامتحانات-->
+        <li>
+            <a href="{{route('student_exams.index')}}"><i class="fa fa-check-square"></i><span
+                    class="right-nav-text">{{ trans('Students_trans.Tests') }}</span></a>
+        </li>
 
 
-            <!-- Settings-->
+        <!-- Settings-->
         <li>
             <a href="{{ route('profile.index') }}"><i class="fa fa-id-card"></i><span class="right-nav-text">{{ trans('main_trans.Profile') }}
-                    </span></a>
+                </span></a>
         </li>
 
 </div>
