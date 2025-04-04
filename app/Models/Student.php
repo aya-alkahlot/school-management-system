@@ -84,9 +84,9 @@ class Student extends Authenticatable
     }
 
     // علاقة بين جدول الطلاب وجدول الحضور والغياب
-    public function attendances() // تم تغيير الاسم إلى attendances
+    public function attendance() // تم تغيير الاسم إلى attendances
     {
-        return $this->hasMany('App\Models\Attendance', 'student_id');
+        return $this->hasMany(Attendance::class, 'student_id');
     }
 
     // العلاقة بين الطلاب والمعلمين عبر جدول `registrations`

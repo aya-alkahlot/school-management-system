@@ -32,7 +32,7 @@
                 <form method="post" action="{{ route('online_classes.store') }}" autocomplete="off">
                     @csrf
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="Grade_id">{{ trans('Students_trans.Grade') }} : <span
                                         class="text-danger">*</span></label>
@@ -45,9 +45,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Subject_id">{{ trans('Students_trans.Subject') }} : <span
+                                <label for="Subject_id">{{ trans('Students_trans.subject') }} : <span
                                         class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="Subject_id">
                                     <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="Classroom_id">{{ trans('Students_trans.classrooms') }} : <span
                                         class="text-danger">*</span></label>
@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="section_id">{{ trans('Students_trans.section') }} : </label>
                                 <select class="custom-select mr-sm-2" name="section_id">

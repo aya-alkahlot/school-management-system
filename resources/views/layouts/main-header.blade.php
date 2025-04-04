@@ -1,13 +1,18 @@
-<!--=================================
-header start-->
+<style>
+    .custom-logo img {
+    height: 60px !important;
+    width: auto !important;
+    max-height: 60px;
+    object-fit: contain;
+}
+</style>
+
+<!--=================================header start-->
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <!-- logo -->
     <div class="text-left navbar-brand-wrapper">
         <a class="navbar-brand brand-logo" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo2.png') }}" alt=""></a>
-        <a class="navbar-brand brand-logo-mini" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo2.png') }}"
-                alt=""></a>
-
-
+        <a class="navbar-brand brand-logo-mini" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo2.png') }}" alt=""></a>
     </div>
     <!-- Top bar left -->
     <ul class="nav navbar-nav mr-auto">
