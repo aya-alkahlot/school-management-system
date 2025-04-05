@@ -64,8 +64,6 @@ Route::group(
             Route::get('profile', [ProfileController::class,'index'])->name('profile.show');
             Route::post('profile/{id}', [ProfileController::class,'update'])->name('profile.update');
             Route::get('student_quizze/{id}', [QuizzController::class, 'student_quizze'])->name('student.quizze');
-            // Route::get('/Get_classrooms/{id}', [QuizzController::class, 'getClassrooms'])->name('getClassrooms');
-            // Route::get('/Get_Sections/{id}', [QuizzController::class, 'Get_Sections'])->name('Get_Sections');
             Route::post('repeat_quizze', [QuizzController::class, 'repeat_quizze'])->name('repeat.quizze');
 
         });
