@@ -26,7 +26,7 @@
                     <div class="card-body text-center">
                         <img src="{{URL::asset('assets/images/student.png')}}"
                             alt="avatar"
-                            class="rounded-circle img-fluid" style="width: 150px;">
+                            class="rounded-circle img-fluid" style="width: 200px;">
                         <h5 style="font-family: Cairo" class="my-3">{{$information->name}}</h5>
                         <p class="text-muted mb-1">{{$information->email}}</p>
                         <p class="text-muted mb-4">{{ trans('Students_trans.name') }}</p>

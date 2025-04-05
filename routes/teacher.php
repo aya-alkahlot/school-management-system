@@ -56,6 +56,7 @@ Route::group(
             Route::get('online_zoom_classes', [OnlineZoomClassesController::class,'index'])->name('online_zoom_classes.index');
             Route::get('/online_zoom_classes/create',  [OnlineZoomClassesController::class, 'create'])->name('online_zoom_classes.create');
             Route::post('/online_zoom_classes/store',  [OnlineZoomClassesController::class, 'store'])->name('online_zoom_classes.store');
+            Route::delete('/destroy/{id}', [OnlineZoomClassesController::class,'destroy'])->name('online_zoom_classes.destroy');
             Route::get('/indirect', [OnlineZoomClassesController::class,'indirectCreate'])->name('indirect.teacher.create');
             Route::post('/indirect', [OnlineZoomClassesController::class,'storeIndirect'])->name('indirect.teacher.store');
             Route::delete('/destroy/{id}', [OnlineZoomClassesController::class,'destroy'])->name('indirect.teacher.destroy');
