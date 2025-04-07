@@ -20094,7 +20094,7 @@ ul.list-unstyled li {
     margin-right: 0;
     margin-left: 20px; }
     .admin-header.navbar .navbar-brand-wrapper .navbar-brand img {
-      max-width: 100%;
+      max-width: 40%;
       margin: auto; }
   .admin-header.navbar .navbar-brand-wrapper .brand-logo-mini {
     display: none; }
@@ -20102,8 +20102,10 @@ ul.list-unstyled li {
 .admin-header .navbar-brand {
   height: auto;
   padding: 9px 0; }
-  .admin-header .navbar-brand img {
-    height: 30px; }
+
+  /* .admin-header .navbar-brand img {
+    height: 10px; } 
+   */
 
 .admin-header .search .search-btn {
   color: #6c757d;

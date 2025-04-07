@@ -37,11 +37,24 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 //
 
+// // Auth::routes();
+// Livewire::setUpdateRoute(fn ($handle) =>
+//      Route::post('/'.LaravelLocalization::setLocale().'/livewire/update' ,$handle));
+
+// Route::get('/',  [HomeController::class, 'index'])->name('selection');
+// // Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
+
 // Auth::routes();
 Livewire::setUpdateRoute(fn ($handle) =>
      Route::post('/'.LaravelLocalization::setLocale().'/livewire/update' ,$handle));
 
-Route::get('/',  [HomeController::class, 'index'])->name('selection');
+
+ Route::get('/',  [HomeController::class, 'index'])->name('selection');
+ Route::get('/', function () {
+    return Response::file(public_path('index.html'));
+});
+
+Route::get('/LoginOptions',  [HomeController::class, 'index'])->name('selection');
 // Route::get('/dashboard',  [HomeController::class, 'dashboard'])->name('dashboard');
 
 
@@ -335,6 +348,8 @@ Route::group(
             Route::put('/settings/update', [SettingController::class, 'update'])->name('settings.update');
         });
         //==============================End dashboard page of library===========================
+
+
        
     }
 );
